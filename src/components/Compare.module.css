@@ -1,0 +1,75 @@
+.section {
+  padding: 72px 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+}
+.grid {
+  display: grid;
+  gap: 16px;
+}
+.card {
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.card h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+}
+.list svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.old {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: #33485c;
+}
+.old h3 {
+  color: var(--text-3);
+}
+.new {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-3) 100%);
+  color: #fff;
+  box-shadow: 0 30px 60px -30px rgba(11, 31, 51, 0.6);
+}
+
+@media (min-width: 900px) {
+  .section {
+    padding: 112px 0 96px;
+    gap: 48px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .card {
+    padding: 40px;
+  }
+  .list li {
+    font-size: 17px;
+  }
+}

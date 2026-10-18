@@ -1,0 +1,59 @@
+/* Design tokens + element defaults only. Component styles live next to each component in *.module.css. */
+:root {
+  --navy: #0b1f33;
+  --navy-2: #12324f;
+  --navy-3: #0e3a66;
+  --blue: #0554ed;
+  --blue-hover: #0544c4;
+  --cyan: #08c4ea;
+  --cyan-soft: #7fd8f5;
+  --ground: #f3f5f8;
+  --surface: #ffffff;
+  --text: #0b1f33;
+  --text-2: #3d5266;
+  --text-3: #52677b;
+  --text-4: #8a9bb0;
+  --border: #dde3ea;
+  --border-input: #cfd8e2;
+  --chip: #eef2f7;
+  --tint-blue: #e6eefe;
+  --tint-cyan: #d6f1fb;
+  --on-dark: #b8cadb;
+  --on-dark-label: #8fb0cc;
+  --on-dark-border: #3a5b7a;
+  --amber-bg: #fef3c7; --amber-fg: #92400e;
+  --green-bg: #dcfce7; --green-fg: #166534;
+  --font-display: var(--font-manrope), system-ui, sans-serif;
+  --font-body: var(--font-plex), system-ui, sans-serif;
+  --gutter: 16px;
+  --max: 1280px;
+  --radius: 20px;
+}
+@media (min-width: 900px) {
+  :root { --gutter: 40px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font-body); background: var(--ground); color: var(--text); line-height: 1.5; overflow-x: hidden; }
+img, svg { display: block; max-width: 100%; }
+a { color: var(--blue); }
+a:hover { color: var(--blue-hover); }
+h1, h2, h3 { margin: 0; }
+p { margin: 0; }
+section[id] { scroll-margin-top: 80px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; }
+
+/* Motion (see components/Motion.tsx). The `motion` class is set by an inline script in <head> only when
+   the visitor allows motion, so hero pieces are hidden before first paint and GSAP fades them in.
+   If the script bundle never runs, the fallback animation shows them anyway after 3s. */
+.motion [data-hero-item], .motion [data-hero-dash] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
+@keyframes motion-fallback { to { visibility: visible; } }
+/* Desktop: the phones wait for the hero's scroll story */
+@media (min-width: 900px) {
+  .motion [data-story-phone] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

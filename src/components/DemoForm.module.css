@@ -1,0 +1,16 @@
+.form { background: var(--surface); color: var(--text); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+.row { display: grid; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field label { font-size: 14px; font-weight: 600; }
+.field input, .field select, .field textarea { width: 100%; min-height: 48px; border: 1px solid var(--border-input); border-radius: 10px; padding: 0 14px; font: 16px var(--font-body); color: var(--text); background: #fff; }
+.field textarea { padding: 12px 14px; resize: vertical; min-height: 110px; }
+.submit { min-height: 54px; }
+.status { font-size: 14px; font-weight: 600; color: var(--green-fg); }
+.status:empty { display: none; }
+
+@media (min-width: 640px) {
+  .row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .form { padding: 32px; border-radius: 20px; }
+}

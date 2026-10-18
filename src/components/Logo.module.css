@@ -1,0 +1,8 @@
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+.logo img { height: 26px; width: auto; }
+.small img { height: 22px; }
+
+@media (min-width: 900px) {
+  .logo img { height: 32px; }
+  .small img { height: 24px; }
+}

@@ -1,0 +1,11 @@
+.section { margin-top: 72px; border-radius: 24px; padding: 36px 18px; color: #fff; background: radial-gradient(640px 320px at 100% 0%, rgba(8,196,234,.28) 0%, rgba(8,196,234,0) 70%), linear-gradient(135deg, var(--navy) 0%, var(--navy-3) 100%); display: grid; gap: 32px; align-items: start; }
+.copy { display: flex; flex-direction: column; gap: 18px; }
+.copy h2 { font-size: clamp(30px, 4.4vw, 48px); }
+.copy p { font-size: 17px; color: var(--on-dark); }
+.contacts { display: flex; flex-direction: column; gap: 10px; font-size: 16px; }
+.contacts a { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.contacts a:hover { color: var(--cyan-soft); }
+
+@media (min-width: 900px) {
+  .section { margin-top: 104px; padding: 64px; border-radius: 28px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; }
+}

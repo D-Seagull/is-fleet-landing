@@ -1,0 +1,20 @@
+/* Shared primitives used across sections: layout container, headings, buttons. */
+.wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+
+.display { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em; line-height: 1.04; }
+.h2 { font-size: clamp(30px, 5vw, 52px); }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); }
+.eyebrowOnDark { color: var(--cyan-soft); }
+.muted { color: var(--text-2); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 12px; font: 600 16px/1 var(--font-body); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .15s, box-shadow .15s, border-color .15s; }
+.primary { background: var(--blue); color: #fff; box-shadow: 0 10px 24px -10px rgba(5,84,237,.7); }
+.primary:hover { background: var(--blue-hover); color: #fff; }
+.ghost { background: var(--surface); color: var(--text); border-color: var(--border-input); }
+.ghost:hover { color: var(--text); border-color: var(--text-4); }
+.lg { min-height: 56px; padding: 0 28px; font-size: 17px; }
+.block { width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
