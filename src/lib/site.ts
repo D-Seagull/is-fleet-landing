@@ -1,12 +1,12 @@
 // Every outbound link and contact the landing uses, in one place.
 
-export const APP_URL = "https://is-fleet-frontend.vercel.app";
+export const APP_URL = "https://app.isfleet.eu";
 
 export const site = {
   name: "IS Fleet",
-  title: "IS Fleet — From chaos to control",
+  title: "IS Fleet — From chaos to control. One system for the whole fleet",
   description:
-    "The connected workspace for modern fleet teams. Plan every trip, see every vehicle, move freight with confidence.",
+    "One system for the whole fleet: trips, trucks, CMRs and the whole team — dispatchers, managers and drivers — on the same page.",
   contactEmail: "isfleet.eu@gmail.com",
   loginUrl: `${APP_URL}/login`,
   privacyUrl: `${APP_URL}/privacy`,

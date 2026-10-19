@@ -1,6 +1,12 @@
-.header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.85); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
-.scrolled { border-bottom-color: var(--border); }
-.nav { height: 68px; display: flex; align-items: center; gap: 12px; }
+/* Fixed (out of the flow) so it can shrink on scroll without shifting the page; the hero reserves
+   its height with padding-top: var(--header-h). */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; background: rgba(255,255,255,.85); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid transparent; transition: border-color .25s ease, background .25s ease; }
+.scrolled { border-bottom-color: var(--border); background: rgba(255,255,255,.92); }
+.nav { height: 68px; display: flex; align-items: center; gap: 12px; transition: height .25s ease; }
+.nav img { transition: height .25s ease; }
+/* Shrunk state once the page is scrolled */
+.scrolled .nav { height: 56px; }
+.scrolled .nav img { height: 22px; }
 .links { display: none; gap: 32px; flex-grow: 1; font-size: 15px; font-weight: 500; }
 .links a { color: #475b6e; text-decoration: none; }
 .links a:hover { color: var(--text); }
@@ -19,5 +25,11 @@
   .nav { height: 80px; gap: 40px; }
   .links { display: flex; }
   .spacer, .menuBtn, .mobileMenu { display: none; }
-  .cta { display: inline-flex; }
+  .cta { display: inline-flex; transition: min-height .25s ease; }
+  .scrolled .nav { height: 60px; }
+  .scrolled .nav img { height: 26px; }
+  .scrolled .cta { min-height: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header, .nav, .nav img, .cta { transition: none; }
 }

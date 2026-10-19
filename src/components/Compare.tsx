@@ -3,20 +3,22 @@ import ui from "@/styles/ui.module.css";
 import styles from "./Compare.module.css";
 import { CheckIcon, CloseIcon } from "./icons";
 
+// Pain → fix, pair by pair: row N on the left is answered by row N on the right, and the rows are
+// height-aligned across the two cards (CSS subgrid), so the columns mirror each other.
 const oldWay = [
-  "Trips live in WhatsApp groups, Excel and someone's notebook.",
-  "CMR photos get buried in chats and are never there when accounting asks.",
-  "“Where is the truck?” means another phone call.",
+  "Trips scattered across chats, spreadsheets and notebooks.",
+  "CMR photos buried in chats — never there when accounting asks.",
+  "“Where’s the truck?” means another phone call.",
   "Changing a driver or vehicle means re-sending everything by hand.",
-  "When the dispatcher is off, nobody knows the full picture.",
+  "Your whole operation lives in one dispatcher’s head.",
 ];
 
 const withFleet = [
   "Every trip in one system — stops, time windows, truck and driver.",
-  "Documents attached to the trip they belong to, searchable in seconds.",
-  "Trip status and driver availability visible to the whole team.",
+  "CMRs attached to the trip, found in seconds when accounting asks.",
+  "See where every trip stands — without picking up the phone.",
   "Swap a truck or driver in one click — history and files follow.",
-  "Anyone on the team can pick up where the last shift left off.",
+  "Every trip is in the system, not someone’s head.",
 ];
 
 export function Compare() {

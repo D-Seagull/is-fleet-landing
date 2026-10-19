@@ -10,7 +10,8 @@ const storeMeta: Record<Store, { small: string; name: string; glyph: ReactNode }
   windows: { small: "Download for", name: "Windows", glyph: <WindowsGlyph /> },
 };
 
-/** Store badge-style button for dark sections. `url: null` renders a non-clickable "Coming soon" placeholder. */
+/** Store badge-style button for dark sections. `url: null` renders a dimmed, non-clickable placeholder
+ * (the card shows one "Coming soon" badge for all of its links). */
 export function StoreButton({ store, url }: { store: Store; url: string | null }) {
   const m = storeMeta[store];
   const inner = (
@@ -27,7 +28,6 @@ export function StoreButton({ store, url }: { store: Store; url: string | null }
     return (
       <span className={cx(styles.store, styles.soon)} aria-disabled="true">
         {inner}
-        <span className={styles.soonTag}>Coming soon</span>
       </span>
     );
   }

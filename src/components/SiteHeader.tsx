@@ -8,12 +8,20 @@ import { CloseIcon, MenuIcon } from "./icons";
 import { Logo } from "./Logo";
 import styles from "./SiteHeader.module.css";
 
+/** Extra scroll (px) after the hero story before the header shrinks. */
+const SHRINK_DELAY = 200;
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    // Shrink once scrolled — but on desktop not before the hero's pinned story is over
+    // (Motion.tsx publishes where it ends as data-story-end on <html>), plus a short beat after it.
+    const onScroll = () => {
+      const storyEnd = Number(document.documentElement.dataset.storyEnd ?? 0);
+      setScrolled(window.scrollY > (storyEnd ? storyEnd + SHRINK_DELAY : 8));
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

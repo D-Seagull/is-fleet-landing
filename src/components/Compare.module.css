@@ -10,28 +10,31 @@
   gap: 14px;
   max-width: 760px;
 }
+/* Each card spans 6 shared rows (title + 5 points) and inherits them via subgrid, so pair N is
+   always the same height on both sides. The row gap is the spacing between points. */
 .grid {
   display: grid;
-  gap: 16px;
+  column-gap: 16px;
+  row-gap: 16px;
 }
 .card {
+  grid-row: span 6;
+  display: grid;
+  grid-template-rows: subgrid;
   border-radius: var(--radius);
   padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
 }
 .card h3 {
   font-size: 20px;
   font-weight: 600;
 }
 .list {
+  grid-row: span 5;
+  display: grid;
+  grid-template-rows: subgrid;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 .list li {
   display: flex;
@@ -52,7 +55,11 @@
   color: var(--text-3);
 }
 .new {
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-3) 100%);
+  /* same faint Europe map as the Apps section, over the navy gradient */
+  background:
+    linear-gradient(160deg, rgba(11, 31, 51, 0.95) 0%, rgba(14, 58, 102, 0.92) 100%),
+    url("/bg-europe-glow.webp") center / cover no-repeat,
+    var(--navy);
   color: #fff;
   box-shadow: 0 30px 60px -30px rgba(11, 31, 51, 0.6);
 }
@@ -64,7 +71,8 @@
   }
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 18px;
   }
   .card {
     padding: 40px;

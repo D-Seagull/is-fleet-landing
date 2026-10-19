@@ -1,11 +1,108 @@
-.section { margin-top: 72px; border-radius: 24px; padding: 36px 18px; color: #fff; background: radial-gradient(640px 320px at 100% 0%, rgba(8,196,234,.28) 0%, rgba(8,196,234,0) 70%), linear-gradient(135deg, var(--navy) 0%, var(--navy-3) 100%); display: grid; gap: 32px; align-items: start; }
-.copy { display: flex; flex-direction: column; gap: 18px; }
-.copy h2 { font-size: clamp(30px, 4.4vw, 48px); }
-.copy p { font-size: 17px; color: var(--on-dark); }
-.contacts { display: flex; flex-direction: column; gap: 10px; font-size: 16px; }
-.contacts a { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-.contacts a:hover { color: var(--cyan-soft); }
+/* Night-road photo (public/bg-truck-map.webp, square) with the glowing Europe map on the right; the overlay darkens the sky behind the
+   copy and the top edge, and leaves the truck (bottom left) and the map (behind the form) visible. */
+.section {
+  margin-top: 72px;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 40px 18px 220px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(7, 21, 38, 0.72) 0%, rgba(7, 21, 38, 0.35) 45%, rgba(7, 21, 38, 0.1) 100%),
+    url("/bg-truck-map.webp") 30% bottom / cover no-repeat,
+    #0a1d33;
+  display: grid;
+  gap: 32px;
+  align-items: start;
+}
+.copy {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+/* Soft blur behind the copy so it reads over the truck; edges fade out (no visible box).
+   Unprefixed only — the build adds -webkit- itself and drops the standard one if both are written. */
+.copy::before {
+  content: "";
+  position: absolute;
+  inset: -36px -56px -36px -48px;
+  z-index: -1;
+  background: rgba(7, 21, 38, 0.18);
+  backdrop-filter: blur(5px);
+  mask-image: radial-gradient(closest-side, #000 60%, transparent 100%);
+  pointer-events: none;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #dbe8f4;
+}
+.eyebrow::after {
+  content: "";
+  width: 56px;
+  height: 2px;
+  border-radius: 1px;
+  background: #2f8cff;
+}
+.copy h2 {
+  font-size: clamp(32px, 4.6vw, 60px);
+  line-height: 1.04;
+}
+.accent {
+  background: linear-gradient(100deg, #3aa8ff 0%, #2f7bff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.copy p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #c9d8e6;
+  max-width: 560px;
+}
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 6px;
+  font-size: 17px;
+}
+.contacts a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.contacts a:hover {
+  color: var(--cyan-soft);
+}
 
 @media (min-width: 900px) {
-  .section { margin-top: 104px; padding: 64px; border-radius: 28px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; }
+  .section {
+    margin-top: 104px;
+    border-radius: 28px;
+    padding: 52px 56px;
+    /* The photo shows on the left only; towards the form it fades into navy (the form's own
+       backdrop blur softens what is left behind it). */
+    background:
+      linear-gradient(90deg, rgba(7, 21, 38, 0.5) 0%, rgba(7, 21, 38, 0.1) 30%, rgba(7, 21, 38, 0.55) 52%, rgba(7, 21, 38, 0.92) 70%),
+      linear-gradient(180deg, rgba(7, 21, 38, 0.4) 0%, rgba(7, 21, 38, 0) 40%),
+      url("/bg-truck-map.webp") 15% 80% / cover no-repeat,
+      #0a1d33;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 56px;
+  }
+  /* copy sits at the top, level with the form, so the truck shows below it */
+  .copy {
+    align-self: start;
+    padding-top: 4px;
+  }
 }

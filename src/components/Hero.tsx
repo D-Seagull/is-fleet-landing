@@ -23,10 +23,12 @@ export function Hero() {
             <span className={styles.badgeDot}><span className={styles.badgePulse} data-pulse /></span>Early access — join the first fleets
           </span>
           <h1 className={styles.title} data-hero-item>
-            From chaos to <span className={styles.accent}>control.</span>
+            From chaos <br />
+            to <span className={styles.accent}>control</span>
           </h1>
           <p className={styles.sub} data-hero-item>
-            The connected workspace for modern fleet teams. Plan every trip, see every vehicle, move freight with confidence.
+            <strong className={styles.subLead}>One system for the whole fleet.</strong> Trips, trucks, CMRs and the whole
+            team — dispatchers, managers and drivers — on the same page.
           </p>
           <div className={styles.ctas} data-hero-item>
             <a className={cx(ui.btn, ui.primary, ui.lg)} href="#demo">Start Free Trial</a>

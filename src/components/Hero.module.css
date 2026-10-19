@@ -1,20 +1,40 @@
+/* Europe route map (public/bg-map.webp, made from bg-map.png) — light enough on its left side
+   for the copy; the bottom fades into the page ground so the next section starts seamlessly. */
 .bg {
   background:
-    radial-gradient(900px 520px at 85% 15%, var(--tint-cyan) 0%, rgba(214,241,251,0) 70%),
-    radial-gradient(700px 480px at 5% 90%, var(--tint-blue) 0%, rgba(230,238,254,0) 70%),
-    linear-gradient(180deg, #fff 0%, var(--ground) 100%);
+    linear-gradient(180deg, rgba(243,245,248,0) 82%, var(--ground) 100%),
+    url("/bg-map.webp") right center / cover no-repeat,
+    #eaf4fd;
+  /* room for the fixed header, which floats over the map */
+  padding-top: var(--header-h);
   border-bottom: 1px solid var(--border);
   overflow: hidden; /* the tilted window may poke past the viewport edge */
 }
 .hero { padding: 40px 0 56px; display: grid; gap: 40px; align-items: center; }
-.copy { display: flex; flex-direction: column; gap: 22px; }
+.copy { position: relative; isolation: isolate; container-type: inline-size; display: flex; flex-direction: column; gap: 22px; }
+/* Faint frosted patch behind the headline and slogan: softens the route map under the text (its
+   silhouette stays readable) and fades
+   out at the edges (mask), so there is no visible box. */
+.copy::before {
+  content: "";
+  position: absolute;
+  inset: -48px -72px -40px -64px;
+  z-index: -1;
+  background: rgba(243, 247, 252, .1);
+  backdrop-filter: blur(1px);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  pointer-events: none;
+}
 .badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--blue-hover); background: var(--surface); border: 1px solid #bfe9f7; padding: 7px 14px 7px 10px; border-radius: 999px; box-shadow: 0 1px 2px rgba(11,31,51,.06); }
 .badgeDot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
 /* Pulse ring, animated by Motion.tsx (static, hidden ring when motion is reduced). */
 .badgePulse { position: absolute; inset: 0; border-radius: 50%; background: var(--blue); opacity: 0; }
-.title { font-family: var(--font-display); font-weight: 800; font-size: clamp(52px, min(6.6vw, 11.5vh), 94px); line-height: .96; letter-spacing: -0.045em; }
+.title { font-family: var(--font-display); font-weight: 800; /* Sized from the copy column (cqi), so "From chaos" / "to control" always stay on two lines;
+   vh keeps the pinned hero within short laptop screens. */
+  font-size: clamp(40px, min(19cqi, 12.8vh), 120px); line-height: .96; letter-spacing: -0.045em; }
 .accent { background: linear-gradient(100deg, var(--cyan) 0%, var(--blue) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .sub { font-size: clamp(17px, 2vw, 21px); color: var(--text-2); max-width: 540px; }
+.subLead { color: var(--text); font-weight: 600; }
 .ctas { display: flex; flex-direction: column; gap: 10px; }
 
 /* Story steps under the buttons — lit one by one as the stage scrolls (desktop only) */

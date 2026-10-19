@@ -59,29 +59,51 @@ export function Motion() {
       const phones = gsap.utils.toArray<HTMLElement>("[data-story-phone]", story);
       const desk = story.querySelector("[data-story-desk]");
       const dim = 0.3;
+      // Every change in the story takes the same share of the scroll and moves at a constant
+      // speed (linear ease), so the manager phone and the driver phone arrive at the same pace.
+      const STEP = 1;
+      // Rest after the last device lands, so the scrub has caught up and the story is fully still
+      // before the pin lets go — without it the driver phone was still moving as the page took off.
+      const HOLD = 0.4;
       const slideIn = (el: Element, at: string) =>
-        tl.fromTo(el, { y: 160, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" }, at);
+        tl.fromTo(el, { y: 160, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: STEP }, at);
 
       const tl = gsap.timeline({
-        defaults: { ease: "power2.out" },
+        defaults: { ease: "none" },
         scrollTrigger: {
           trigger: story,
-          start: "top 80px",
-          end: "+=800",
+          // The hero starts at the very top (the fixed header floats over its padding-top),
+          // so the pin engages at scroll 0 with nothing to jump.
+          start: "top top",
+          // 2 steps × 400px + a 160px rest at the end (see HOLD) — same 400px per step as before.
+          end: "+=960",
           pin: true,
           // pinSpacing must be explicit: GSAP turns it off when the pinned element sits in a flex parent.
           pinSpacing: true,
-          scrub: 0.3,
+          // Engage the pin a frame early — otherwise the first wheel tick scrolls the hero up and it
+          // snaps back when position: fixed kicks in (a visible jerk right before the story starts).
+          anticipatePin: 1,
+          scrub: 0.6,
+          // Tell the header where the story ends: it stays full-size while the story plays and
+          // only shrinks once the page scrolls on past it (see SiteHeader).
+          onRefresh: (self) => {
+            document.documentElement.dataset.storyEnd = String(Math.round(self.end));
+          },
         },
       });
-      tl.addLabel("manager", 0).addLabel("driver", 0.7);
+      tl.addLabel("manager", 0).addLabel("driver", STEP);
       tl.fromTo(steps.slice(1), { opacity: dim }, { opacity: dim, duration: 0 }, 0);
-      tl.to(steps[0], { opacity: dim, duration: 0.4 }, "manager")
-        .to(steps[1], { opacity: 1, duration: 0.4 }, "manager")
-        .fromTo(desk, { scale: 1, opacity: 1 }, { scale: 0.96, opacity: 0.7, duration: 0.8 }, "manager");
+      tl.to(steps[0], { opacity: dim, duration: STEP }, "manager")
+        .to(steps[1], { opacity: 1, duration: STEP }, "manager")
+        .fromTo(desk, { scale: 1 }, { scale: 0.96, duration: STEP }, "manager");
       slideIn(phones[0], "manager");
-      tl.to(steps[1], { opacity: dim, duration: 0.4 }, "driver").to(steps[2], { opacity: 1, duration: 0.4 }, "driver");
+      tl.to(steps[1], { opacity: dim, duration: STEP }, "driver").to(steps[2], { opacity: 1, duration: STEP }, "driver");
       slideIn(phones[1], "driver");
+      tl.to({}, { duration: HOLD });
+
+      return () => {
+        delete document.documentElement.dataset.storyEnd;
+      };
     });
 
     // Hero story, smaller screens: no pinning — the phones under the window just fade up.

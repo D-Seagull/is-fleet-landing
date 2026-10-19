@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { cx } from "@/lib/cx";
 import { site } from "@/lib/site";
-import ui from "@/styles/ui.module.css";
 import styles from "./DemoForm.module.css";
+import { ArrowRightIcon, TruckIcon } from "./icons";
 
 // No backend endpoint yet: submitting opens the visitor's mail client with the request pre-filled.
 export function DemoForm() {
@@ -34,20 +33,24 @@ export function DemoForm() {
 
   return (
     <form className={styles.form} onSubmit={onSubmit} noValidate>
+      <span className={styles.badge} aria-hidden="true">
+        <span className={styles.speed}><i /><i /><i /></span>
+        <TruckIcon size={30} strokeWidth={1.5} />
+      </span>
       <div className={styles.row}>
         <div className={styles.field}>
           <label htmlFor="f-name">Your name</label>
-          <input id="f-name" name="name" type="text" autoComplete="name" required />
+          <input id="f-name" name="name" type="text" autoComplete="name" placeholder="John Doe" required />
         </div>
         <div className={styles.field}>
           <label htmlFor="f-company">Company</label>
-          <input id="f-company" name="company" type="text" autoComplete="organization" required />
+          <input id="f-company" name="company" type="text" autoComplete="organization" placeholder="Your company name" required />
         </div>
       </div>
       <div className={styles.row}>
         <div className={styles.field}>
           <label htmlFor="f-email">Work email</label>
-          <input id="f-email" name="email" type="email" autoComplete="email" required />
+          <input id="f-email" name="email" type="email" autoComplete="email" placeholder="you@company.com" required />
         </div>
         <div className={styles.field}>
           <label htmlFor="f-size">Number of trucks</label>
@@ -61,9 +64,17 @@ export function DemoForm() {
       </div>
       <div className={styles.field}>
         <label htmlFor="f-msg">Anything we should know?</label>
-        <textarea id="f-msg" name="message" rows={4} />
+        <textarea
+          id="f-msg"
+          name="message"
+          rows={4}
+          placeholder="Tell us about your fleet, routes or special requirements…"
+        />
       </div>
-      <button className={cx(ui.btn, ui.primary, ui.block, styles.submit)} type="submit">Book a Demo</button>
+      <button className={styles.submit} type="submit">
+        Book a Demo
+        <ArrowRightIcon size={20} />
+      </button>
       <p className={styles.status} role="status" aria-live="polite">
         {sent ? "Thanks! Your email app should open with the request ready to send." : ""}
       </p>

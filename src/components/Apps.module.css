@@ -1,5 +1,10 @@
+/* Navy with the glowing Europe map (public/bg-europe-glow.webp) faintly showing through */
 .section {
-  background: var(--navy);
+  position: relative;
+  background:
+    linear-gradient(rgba(11, 31, 51, 0.93), rgba(11, 31, 51, 0.93)),
+    url("/bg-europe-glow.webp") right center / cover no-repeat,
+    var(--navy);
   color: #fff;
   border-radius: 24px;
   padding: 48px 20px;
@@ -26,10 +31,22 @@
   gap: 12px;
 }
 .label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--on-dark-label);
+}
+.soon {
+  font-size: 11px;
+  letter-spacing: 0;
+  color: var(--navy);
+  background: var(--cyan-soft);
+  padding: 2px 8px;
+  border-radius: 999px;
 }
 .card h3 {
   font-size: 22px;
@@ -46,16 +63,21 @@
   gap: 8px;
   padding-top: 8px;
 }
+/* #download target: out of the flex flow, so it adds no gap above the heading */
 .anchor {
-  position: relative;
-  top: -80px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 @media (min-width: 900px) {
+  .head {
+    max-width: none;
+  }
   .section {
-    padding: 96px 48px;
+    padding: 72px 48px;
     border-radius: 32px;
-    gap: 56px;
+    gap: 44px;
   }
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -70,5 +92,44 @@
   .section {
     margin-left: -24px;
     margin-right: -24px;
+  }
+}
+
+/* Laptops: the whole block should fit one screen under the 81px header */
+@media (min-width: 900px) and (max-height: 820px) {
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+    gap: 32px;
+  }
+  .head h2 {
+    font-size: clamp(30px, 6vh, 46px);
+  }
+  .card {
+    padding: 26px 28px;
+    gap: 10px;
+  }
+  .card svg:first-child {
+    width: 26px;
+    height: 26px;
+  }
+  .card h3 {
+    font-size: 20px;
+  }
+  .card p {
+    font-size: 15px;
+  }
+}
+@media (min-width: 900px) and (max-height: 680px) {
+  .section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 24px;
+  }
+  .card {
+    padding: 22px 24px;
+  }
+  .card p {
+    font-size: 14px;
   }
 }

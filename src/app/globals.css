@@ -26,11 +26,13 @@
   --font-display: var(--font-manrope), system-ui, sans-serif;
   --font-body: var(--font-plex), system-ui, sans-serif;
   --gutter: 16px;
+  /* Full (unscrolled) height of the fixed site header, incl. its 1px border */
+  --header-h: 69px;
   --max: 1280px;
   --radius: 20px;
 }
 @media (min-width: 900px) {
-  :root { --gutter: 40px; }
+  :root { --gutter: 40px; --header-h: 81px; }
 }
 
 *, *::before, *::after { box-sizing: border-box; }

@@ -35,18 +35,24 @@ a.store:hover {
   border-style: dashed;
   color: var(--on-dark);
   cursor: default;
-}
-.soonTag {
-  margin-left: 2px;
-  font-size: 10.5px;
-  font-weight: 600;
-  color: var(--navy);
-  background: var(--cyan-soft);
-  padding: 3px 7px;
-  border-radius: 999px;
-  white-space: nowrap;
+  opacity: 0.85;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .store { transition: none; }
+}
+
+/* Short laptop screens: one-line buttons so a card's links stay on a single row */
+@media (min-width: 900px) and (max-height: 680px) {
+  .store {
+    min-height: 40px;
+    padding: 6px 12px 6px 10px;
+    gap: 8px;
+  }
+  .small {
+    display: none;
+  }
+  .name {
+    font-size: 14px;
+  }
 }

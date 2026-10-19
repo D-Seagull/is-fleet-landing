@@ -44,7 +44,10 @@ export function Apps() {
         {apps.map(({ id, icon: AppIcon, label, title, text }) => (
           <article className={styles.card} key={title}>
             <AppIcon size={32} strokeWidth={1.8} stroke="#7fd8f5" />
-            <span className={styles.label}>{label}</span>
+            <span className={styles.label}>
+              {label}
+              {downloads[id].every((l) => !l.url) && <span className={styles.soon}>Coming soon</span>}
+            </span>
             <h3>{title}</h3>
             <p>{text}</p>
             <div className={styles.stores}>
