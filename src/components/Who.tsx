@@ -1,24 +1,48 @@
 import { cx } from "@/lib/cx";
 import ui from "@/styles/ui.module.css";
+import features from "./Features.module.css";
+import { GlobeIcon, LanguagesIcon, TruckIcon, UsersIcon } from "./icons";
 import styles from "./Who.module.css";
 
-const audiences = [
-  { title: "Logistics companies", text: "One source of truth for trips, trucks and paperwork across the business." },
-  { title: "Dispatchers", text: "Plan, assign and track from one screen instead of five apps." },
-  { title: "Team leads", text: "See your team's trips and step in without asking around." },
-  { title: "Drivers", text: "A simple phone app: current trip, stops, documents. Sign in by SMS code." },
+// By fleet type, not by role — the roles are already covered by the three-apps section.
+// Cards reuse the features section's card styles so the two blocks read as one system.
+const fleets = [
+  {
+    icon: TruckIcon,
+    title: "Fleets of any size",
+    text: "From a handful of trucks to hundreds — get organized without a heavy TMS. Up and running in days.",
+  },
+  {
+    icon: GlobeIcon,
+    title: "International hauliers",
+    text: "Every trip, CMR and document in one place across borders. Nothing lost between countries.",
+  },
+  {
+    icon: UsersIcon,
+    title: "Subcontractors & mixed fleets",
+    text: "Owned trucks and hired drivers on one board. Everyone sees the same trips.",
+  },
+  {
+    icon: LanguagesIcon,
+    title: "Mixed-language teams",
+    text: "Built for fleets where managers and drivers don’t share a language — so addresses and instructions don’t get lost in translation.",
+  },
 ];
 
 export function Who() {
   return (
-    <section className={styles.section} id="who">
-      <h2 className={cx(ui.display, styles.title)} data-reveal>Who it&apos;s for</h2>
+    <section className={cx(features.section, styles.section)} id="who">
+      <div className={features.head} data-reveal>
+        <h2 className={cx(ui.display, ui.h2)}>Who it&apos;s for</h2>
+        <p className={ui.muted}>Built for road freight — any fleet size, domestic or cross-border.</p>
+      </div>
       <div className={styles.grid} data-stagger>
-        {audiences.map((a) => (
-          <div className={styles.item} key={a.title}>
-            <h3>{a.title}</h3>
-            <p>{a.text}</p>
-          </div>
+        {fleets.map(({ icon: FleetIcon, title, text }) => (
+          <article className={features.card} key={title}>
+            <span className={features.icon}><FleetIcon /></span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
         ))}
       </div>
     </section>

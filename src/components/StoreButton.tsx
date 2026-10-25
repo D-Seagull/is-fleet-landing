@@ -8,6 +8,7 @@ const storeMeta: Record<Store, { small: string; name: string; glyph: ReactNode }
   appStore: { small: "Download on the", name: "App Store", glyph: <AppleGlyph /> },
   googlePlay: { small: "Get it on", name: "Google Play", glyph: <PlayGlyph /> },
   windows: { small: "Download for", name: "Windows", glyph: <WindowsGlyph /> },
+  macos: { small: "Download for", name: "macOS", glyph: <AppleGlyph /> },
 };
 
 /** Store badge-style button for dark sections. `url: null` renders a dimmed, non-clickable placeholder

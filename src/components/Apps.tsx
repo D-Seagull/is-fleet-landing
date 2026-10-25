@@ -13,7 +13,7 @@ const apps = [
     icon: MonitorIcon,
     label: "FOR DISPATCHERS",
     title: "Web dashboard",
-    text: "Plan the trip at the desk — stops, time windows, truck and driver. In the browser or as a Windows app that updates itself.",
+    text: "Plan the trip at the desk — stops, time windows, truck and driver. In the browser or as a desktop app for Windows and macOS that updates itself.",
   },
   {
     id: "manager" as const,

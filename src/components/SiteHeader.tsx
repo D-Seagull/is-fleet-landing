@@ -40,7 +40,7 @@ export function SiteHeader() {
         </nav>
         <span className={styles.spacer} />
         <a className={styles.login} href={site.loginUrl}>Log in</a>
-        <a className={cx(ui.btn, ui.primary, styles.cta)} href="#demo">Start Free Trial</a>
+        <a className={cx(ui.btn, ui.primary, styles.cta)} href="#trial">Start Free Trial</a>
         <button
           className={styles.menuBtn}
           type="button"
@@ -57,7 +57,7 @@ export function SiteHeader() {
           {navLinks.map((l) => (
             <a key={l.href} href={l.href} onClick={closeMenu}>{l.label}</a>
           ))}
-          <a className={cx(ui.btn, ui.primary, styles.mobileCta)} href="#demo" onClick={closeMenu}>Start Free Trial</a>
+          <a className={cx(ui.btn, ui.primary, styles.mobileCta)} href="#trial" onClick={closeMenu}>Start Free Trial</a>
         </nav>
       </div>
     </header>

@@ -2,14 +2,20 @@ import { site } from "@/lib/site";
 import ui from "@/styles/ui.module.css";
 import { DemoForm } from "./DemoForm";
 import styles from "./DemoSection.module.css";
-import { MailIcon } from "./icons";
+import { MailIcon, PlugIcon } from "./icons";
 
 // Final call to action over the night-road photo (public/bg-truck-map.webp).
 export function DemoSection() {
   return (
     <section className={styles.section} id="demo" data-reveal>
+      {/* #trial lands here too and opens the form on the trial tab (see DemoForm) */}
+      <span id="trial" className={styles.anchor} />
       <div className={styles.copy}>
         <span className={styles.eyebrow}>Get in touch</span>
+        <p className={styles.integrations}>
+          <PlugIcon size={15} />
+          Open to integrations — tell us your stack
+        </p>
         <h2 className={ui.display}>
           Be one of the first fleets on <span className={styles.accent}>IS Fleet.</span>
         </h2>

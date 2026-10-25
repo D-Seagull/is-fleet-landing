@@ -31,7 +31,7 @@ export function Hero() {
             team — dispatchers, managers and drivers — on the same page.
           </p>
           <div className={styles.ctas} data-hero-item>
-            <a className={cx(ui.btn, ui.primary, ui.lg)} href="#demo">Start Free Trial</a>
+            <a className={cx(ui.btn, ui.primary, ui.lg)} href="#trial">Start Free Trial</a>
             <a className={cx(ui.btn, ui.ghost, ui.lg)} href="#demo">Book a Demo</a>
           </div>
           <ol className={styles.steps} data-hero-item>
