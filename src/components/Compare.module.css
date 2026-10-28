@@ -57,7 +57,11 @@
 .new {
   /* same faint Europe map as the Apps section, over the navy gradient */
   background:
-    linear-gradient(160deg, rgba(11, 31, 51, 0.95) 0%, rgba(14, 58, 102, 0.92) 100%),
+    linear-gradient(
+      160deg,
+      rgba(11, 31, 51, 0.95) 0%,
+      rgba(14, 58, 102, 0.92) 100%
+    ),
     url("/bg-europe-glow.webp") center / cover no-repeat,
     var(--navy);
   color: #fff;

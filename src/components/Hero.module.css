@@ -2,7 +2,7 @@
    for the copy; the bottom fades into the page ground so the next section starts seamlessly. */
 .bg {
   background:
-    linear-gradient(180deg, rgba(243,245,248,0) 82%, var(--ground) 100%),
+    linear-gradient(180deg, rgba(243, 245, 248, 0) 82%, var(--ground) 100%),
     url("/bg-map.webp") right center / cover no-repeat,
     #eaf4fd;
   /* room for the fixed header, which floats over the map */
@@ -15,14 +15,35 @@
    story (keep in sync with STORY_SCROLL there). Sticky, not a GSAP pin: the browser holds and
    releases it in step with the scroll itself, while a JS pin lets go a frame late — the page used
    to freeze and then jump right after the driver phone landed. Only with motion (the <head>
-   script adds .motion), so reduced-motion visitors just scroll. */
-@media (min-width: 900px) and (min-height: 560px) {
-  :global(html.motion) .track::after { content: ""; display: block; height: 960px; }
-  :global(html.motion) .bg { position: sticky; top: 0; }
+   script adds .motion), so reduced-motion visitors just scroll; and not on an upright touch
+   tablet, which has no story (TABLET in Motion.tsx). */
+@media (min-width: 900px) and (min-height: 560px) and (pointer: fine),
+  (min-width: 900px) and (min-height: 560px) and (orientation: landscape) {
+  :global(html.motion) .track::after {
+    content: "";
+    display: block;
+    height: 960px;
+  }
+  :global(html.motion) .bg {
+    position: sticky;
+    top: 0;
+  }
 }
 /* padding-block only: the side padding is ui.wrap's gutter */
-.hero { padding-block: 40px 56px; display: grid; gap: 40px; align-items: center; }
-.copy { position: relative; isolation: isolate; container-type: inline-size; display: flex; flex-direction: column; gap: 22px; }
+.hero {
+  padding-block: 40px 56px;
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+.copy {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
 /* Faint frosted patch behind the headline and slogan: softens the route map under the text (its
    silhouette stays readable) and fades
    out at the edges (mask), so there is no visible box. */
@@ -31,76 +52,218 @@
   position: absolute;
   inset: -48px -72px -40px -64px;
   z-index: -1;
-  background: rgba(243, 247, 252, .1);
+  background: rgba(243, 247, 252, 0.1);
   backdrop-filter: blur(1px);
   mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
   pointer-events: none;
 }
-.badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--blue-hover); background: var(--surface); border: 1px solid #bfe9f7; padding: 7px 14px 7px 10px; border-radius: 999px; box-shadow: 0 1px 2px rgba(11,31,51,.06); }
-.badgeDot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+.badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-hover);
+  background: var(--surface);
+  border: 1px solid #bfe9f7;
+  padding: 7px 14px 7px 10px;
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(11, 31, 51, 0.06);
+}
+.badgeDot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
 /* Pulse ring, animated by Motion.tsx (static, hidden ring when motion is reduced). */
-.badgePulse { position: absolute; inset: 0; border-radius: 50%; background: var(--blue); opacity: 0; }
-.title { font-family: var(--font-display); font-weight: 800; /* Sized from the copy column (cqi), so "From chaos" / "to control" always stay on two lines;
+.badgePulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--blue);
+  opacity: 0;
+}
+.title {
+  font-family: var(--font-display);
+  font-weight: 800; /* Sized from the copy column (cqi), so "From chaos" / "to control" always stay on two lines;
    vh keeps the pinned hero within short laptop screens. --title-em (Hero.tsx) is the widest line's
    width in em, so every language fills the column: English (5.2em) comes out at ~19cqi. */
-  font-size: clamp(34px, min(calc(98.5cqi / var(--title-em, 5.2)), 12.8vh), 120px); line-height: .96; letter-spacing: -0.045em; }
-.accent { background: linear-gradient(100deg, var(--cyan) 0%, var(--blue) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.sub { font-size: clamp(17px, 2vw, 21px); color: var(--text-2); max-width: 540px; }
-.subLead { color: var(--text); font-weight: 600; }
-.ctas { display: flex; flex-direction: column; gap: 10px; }
-.soon { align-self: center; font-size: 14px; font-weight: 600; color: var(--text-2); }
+  font-size: clamp(
+    34px,
+    min(calc(98.5cqi / var(--title-em, 5.2)), 12.8vh),
+    120px
+  );
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+.accent {
+  background: linear-gradient(100deg, var(--cyan) 0%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.sub {
+  font-size: clamp(17px, 2vw, 21px);
+  color: var(--text-2);
+  max-width: 540px;
+}
+.subLead {
+  color: var(--text);
+  font-weight: 600;
+}
+.ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.soon {
+  align-self: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-2);
+}
 
 /* Story steps under the buttons — lit one by one as the stage scrolls (desktop only) */
-.steps { display: none; list-style: none; margin: 4px 0 0; padding: 0; flex-direction: column; gap: 8px; max-width: 460px; }
-.step { display: flex; gap: 12px; align-items: baseline; font-size: 15px; color: var(--text-2); }
-.step b { color: var(--text); font-weight: 600; }
-.stepNum { font-family: var(--font-display); font-size: 13px; font-weight: 800; color: var(--blue); }
+.steps {
+  display: none;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 460px;
+}
+.step {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 15px;
+  color: var(--text-2);
+}
+.step b {
+  color: var(--text);
+  font-weight: 600;
+}
+.stepNum {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--blue);
+}
 
 /* Stage: the web app with both phones in front. Phones sit under the window on small screens
    and overlap its lower corners on desktop; `zoom` scales the fixed-size phones as one piece. */
-.stage { position: relative; display: flex; flex-direction: column; min-width: 0; }
-.phones { position: relative; display: flex; justify-content: center; gap: 14px; margin-top: -48px; zoom: .78; }
-
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.phones {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: -48px;
+  zoom: 0.78;
+}
 
 @media (min-width: 420px) {
-  .phones { zoom: .9; }
+  .phones {
+    zoom: 0.9;
+  }
 }
 @media (min-width: 640px) {
-  .ctas { flex-direction: row; }
-  .phones { zoom: 1; gap: 40px; }
+  .ctas {
+    flex-direction: row;
+  }
+  .phones {
+    zoom: 1;
+    gap: 40px;
+  }
 }
 @media (min-width: 900px) {
   /* The tilt brings the right edge closer, so it grows past its box: keep it clear of the screen edge */
-  .tilt { transform: perspective(1800px) rotateY(-9deg) rotateX(3deg) rotateZ(-1deg); transform-origin: 70% 50%; margin-right: 14px; }
+  .tilt {
+    transform: perspective(1800px) rotateY(-9deg) rotateX(3deg) rotateZ(-1deg);
+    transform-origin: 70% 50%;
+    margin-right: 14px;
+  }
   /* Pinned under the 80px header while the story scrolls, so it has to fit one screen */
-  .hero { grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr); gap: 48px; padding-block: 40px 48px; }
-  .steps { display: flex; }
-  .stage { padding-bottom: 200px; }
-  .phones { position: absolute; left: -44px; right: 8px; bottom: 0; margin: 0; justify-content: space-between; align-items: flex-end; zoom: .82; }
-  .phones > :last-child { margin-bottom: 36px; }
+  .hero {
+    grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+    gap: 48px;
+    padding-block: 40px 48px;
+  }
+  .steps {
+    display: flex;
+  }
+  .stage {
+    padding-bottom: 200px;
+  }
+  .phones {
+    position: absolute;
+    left: -44px;
+    right: 8px;
+    bottom: 0;
+    margin: 0;
+    justify-content: space-between;
+    align-items: flex-end;
+    zoom: 0.82;
+  }
+  .phones > :last-child {
+    margin-bottom: 36px;
+  }
 }
 @media (min-width: 1440px) {
   /* Let the app window run a little into the right gutter so it reads bigger — only once the
      page is wider than the content, otherwise the window runs off the screen edge */
-  .tilt { margin-right: -32px; }
-  .phones { right: -16px; }
+  .tilt {
+    margin-right: -32px;
+  }
+  .phones {
+    right: -16px;
+  }
 }
 
 /* Laptops: the pinned hero must fit between the 80px header and the bottom of the window.
    Real laptop viewports are short (1366×768 → ~650px, 1536×864 → ~750px once the browser
    chrome is taken), so tighten spacing and scale the device stage down by height. */
 @media (min-width: 900px) and (max-height: 820px) {
-  .hero { padding-block: 24px; }
-  .copy { gap: 16px; }
-  .stage { zoom: .88; }
+  .hero {
+    padding-block: 24px;
+  }
+  .copy {
+    gap: 16px;
+  }
+  .stage {
+    zoom: 0.88;
+  }
 }
 @media (min-width: 900px) and (max-height: 720px) {
-  .copy { gap: 12px; }
-  .sub { font-size: 17px; }
-  .steps { gap: 4px; margin-top: 0; }
-  .step { font-size: 14px; }
-  .stage { zoom: .76; }
+  .copy {
+    gap: 12px;
+  }
+  .sub {
+    font-size: 17px;
+  }
+  .steps {
+    gap: 4px;
+    margin-top: 0;
+  }
+  .step {
+    font-size: 14px;
+  }
+  .stage {
+    zoom: 0.76;
+  }
 }
 @media (min-width: 900px) and (max-height: 620px) {
-  .stage { zoom: .66; }
+  .stage {
+    zoom: 0.66;
+  }
 }

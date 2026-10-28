@@ -49,10 +49,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* Motion (see components/Motion.tsx). The `motion` class is set by an inline script in <head> only when
    the visitor allows motion, so hero pieces are hidden before first paint and GSAP fades them in.
    If the script bundle never runs, the fallback animation shows them anyway after 3s. */
-.motion [data-hero-item], .motion [data-hero-dash] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
+.motion [data-hero-item] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
+/* The app window animates in on desktops only (DESKTOP_MOTION in Motion.tsx) */
+@media (min-width: 900px) and (pointer: fine), (min-width: 900px) and (orientation: landscape) {
+  .motion [data-hero-dash] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
+}
 @keyframes motion-fallback { to { visibility: visible; } }
-/* Desktop: the phones wait for the hero's scroll story */
-@media (min-width: 900px) {
+/* Desktop: the phones wait for the hero's scroll story (none on upright tablets) */
+@media (min-width: 900px) and (pointer: fine), (min-width: 900px) and (orientation: landscape) {
   .motion [data-story-phone] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
 }
 

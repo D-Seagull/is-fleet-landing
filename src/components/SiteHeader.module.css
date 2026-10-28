@@ -1,61 +1,205 @@
 /* Fixed (out of the flow) so it can shrink on scroll without shifting the page; the hero reserves
    its height with padding-top: var(--header-h). */
-.header { position: fixed; top: 0; left: 0; right: 0; z-index: 20; background: rgba(255,255,255,.85); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid transparent; transition: border-color .25s ease, background .25s ease; }
-.scrolled { border-bottom-color: var(--border); background: rgba(255,255,255,.92); }
-.nav { height: 68px; display: flex; align-items: center; gap: 12px; transition: height .25s ease; }
-.nav img { transition: height .25s ease; }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+.scrolled {
+  border-bottom-color: var(--border);
+  background: rgba(255, 255, 255, 0.92);
+}
+.nav {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: height 0.25s ease;
+}
+.nav img {
+  transition: height 0.25s ease;
+}
 /* Shrunk state once the page is scrolled */
-.scrolled .nav { height: 56px; }
-.scrolled .nav img { height: 22px; }
-.links { display: none; gap: 32px; flex-grow: 1; font-size: 15px; font-weight: 500; }
-.links a { color: #475b6e; text-decoration: none; white-space: nowrap; }
-.links a:hover { color: var(--text); }
-.spacer { flex-grow: 1; }
+.scrolled .nav {
+  height: 56px;
+}
+.scrolled .nav img {
+  height: 22px;
+}
+.links {
+  display: none;
+  gap: 32px;
+  flex-grow: 1;
+  font-size: 15px;
+  font-weight: 500;
+}
+.links a {
+  color: #475b6e;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.links a:hover {
+  color: var(--text);
+}
+.spacer {
+  flex-grow: 1;
+}
 /* Language picker stays in the header bar on every width (flag only below 1024px) */
-.lang { display: block; }
-.login { font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; padding: 12px 6px; white-space: nowrap; }
-.login:hover { color: var(--blue); }
-.cta { display: none; min-height: 44px; padding: 0 20px; font-size: 15px; white-space: nowrap; }
-.menuBtn { flex-shrink: 0; width: 44px; height: 44px; border: 1px solid var(--border-input); border-radius: 10px; background: var(--surface); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text); }
-.mobileMenu { display: none; border-top: 1px solid var(--border); background: var(--surface); }
-.open { display: block; }
-.mobileMenu > nav { display: flex; flex-direction: column; padding: 8px var(--gutter) 20px; }
-.mobileMenu > nav > a:not(.mobileCta) { padding: 14px 0; font-size: 17px; font-weight: 500; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--chip); }
-.mobileCta { margin-top: 16px; }
+.lang {
+  display: block;
+}
+.login {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  padding: 12px 6px;
+  white-space: nowrap;
+}
+.login:hover {
+  color: var(--blue);
+}
+.cta {
+  display: none;
+  min-height: 44px;
+  padding: 0 20px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.menuBtn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-input);
+  border-radius: 10px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text);
+}
+.mobileMenu {
+  display: none;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.open {
+  display: block;
+}
+.mobileMenu > nav {
+  display: flex;
+  flex-direction: column;
+  padding: 8px var(--gutter) 20px;
+}
+.mobileMenu > nav > a:not(.mobileCta) {
+  padding: 14px 0;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--chip);
+}
+.mobileCta {
+  margin-top: 16px;
+}
 /* Small phones: logo, flag, "Log in" (Prisijungti / Zaloguj się are long) and the menu button
    have to share ~290px */
 @media (max-width: 399px) {
-  .nav { gap: 4px; }
-  .nav img, .scrolled .nav img { height: 20px; }
-  .lang { margin-right: -4px; }
-  .login { padding: 12px 4px; font-size: 14px; }
+  .nav {
+    gap: 4px;
+  }
+  .nav img,
+  .scrolled .nav img {
+    height: 20px;
+  }
+  .lang {
+    margin-right: -4px;
+  }
+  .login {
+    padding: 12px 4px;
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 900px) {
-  .nav { height: 80px; gap: 40px; }
-  .links { display: flex; }
+  .nav {
+    height: 80px;
+    gap: 40px;
+  }
+  .links {
+    display: flex;
+  }
   /* Language picker sits right next to "Log in", closer than the nav's 40px gap */
-  .lang { display: block; margin-right: -30px; }
-  .spacer, .menuBtn, .mobileMenu { display: none; }
-  .cta { display: inline-flex; transition: min-height .25s ease; }
-  .scrolled .nav { height: 60px; }
-  .scrolled .nav img { height: 26px; }
-  .scrolled .cta { min-height: 40px; }
+  .lang {
+    display: block;
+    margin-right: -30px;
+  }
+  .spacer,
+  .menuBtn,
+  .mobileMenu {
+    display: none;
+  }
+  .cta {
+    display: inline-flex;
+    transition: min-height 0.25s ease;
+  }
+  .scrolled .nav {
+    height: 60px;
+  }
+  .scrolled .nav img {
+    height: 26px;
+  }
+  .scrolled .cta {
+    min-height: 40px;
+  }
 }
 /* Small laptops / tablets in landscape: longer languages (Lithuanian, Polish) need the room */
 @media (min-width: 900px) and (max-width: 1199px) {
-  .nav { gap: 20px; }
-  .links { gap: 18px; font-size: 14px; }
-  .lang { margin-right: -14px; }
-  .login, .cta { font-size: 14px; }
-  .cta { padding: 0 14px; }
+  .nav {
+    gap: 20px;
+  }
+  .links {
+    gap: 18px;
+    font-size: 14px;
+  }
+  .lang {
+    margin-right: -14px;
+  }
+  .login,
+  .cta {
+    font-size: 14px;
+  }
+  .cta {
+    padding: 0 14px;
+  }
 }
 @media (min-width: 900px) and (max-width: 1023px) {
-  .nav { gap: 16px; }
-  .links { gap: 14px; font-size: 13.5px; }
-  .lang { margin-right: -10px; }
+  .nav {
+    gap: 16px;
+  }
+  .links {
+    gap: 14px;
+    font-size: 13.5px;
+  }
+  .lang {
+    margin-right: -10px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .header, .nav, .nav img, .cta { transition: none; }
+  .header,
+  .nav,
+  .nav img,
+  .cta {
+    transition: none;
+  }
 }

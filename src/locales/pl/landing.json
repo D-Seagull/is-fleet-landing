@@ -30,6 +30,8 @@
     "title": "Od chaosu<br/>do <accent>kontroli</accent>",
     "sub": "<lead>Jeden system dla całej floty.</lead> Trasy, ciężarówki, CMR-y i cały zespół — dyspozytorzy, menedżerowie i kierowcy — widzą to samo.",
     "trialSoon": "Darmowy okres próbny — już wkrótce",
+    "showApp": "Zobacz aplikację",
+    "hideApp": "Ukryj aplikację",
     "steps": {
       "desk": { "title": "Panel webowy", "text": "Dyspozytor planuje trasę przy biurku." },
       "manager": { "title": "IS Manager", "text": "Menedżer śledzi ją w telefonie." },

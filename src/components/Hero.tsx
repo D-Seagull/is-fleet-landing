@@ -3,9 +3,11 @@ import type { Locale } from "@/i18n/config";
 import { rich } from "@/i18n/rich";
 import { getT } from "@/i18n/server";
 import { cx } from "@/lib/cx";
+import { AppPreview } from "./AppPreview";
 import { PRIMARY_CTA, TRIAL_OPEN } from "@/lib/site";
 import ui from "@/styles/ui.module.css";
 import { DashboardMockup } from "./DashboardMockup";
+import { MockupFit } from "./MockupFit";
 import styles from "./Hero.module.css";
 import { DriverPhone, ManagerPhone } from "./PhoneMockups";
 import { titleLineEm } from "./titleFit";
@@ -57,18 +59,20 @@ export function Hero({ lng }: { lng: Locale }) {
             </ol>
           </div>
 
-          <div className={styles.stage}>
+          <AppPreview className={styles.stage}>
             {/* Tilt lives on a wrapper: GSAP animates the mockup's own transform */}
             <div className={styles.tilt}>
               <div data-story-desk>
-                <DashboardMockup lng={lng} intro />
+                <MockupFit>
+                  <DashboardMockup lng={lng} intro />
+                </MockupFit>
               </div>
             </div>
             <div className={styles.phones}>
               <ManagerPhone lng={lng} />
               <DriverPhone lng={lng} />
             </div>
-          </div>
+          </AppPreview>
         </section>
       </div>
     </div>

@@ -30,6 +30,8 @@
     "title": "From chaos<br/>to <accent>control</accent>",
     "sub": "<lead>One system for the whole fleet.</lead> Trips, trucks, CMRs and the whole team — dispatchers, managers and drivers — on the same page.",
     "trialSoon": "Free trial — coming soon",
+    "showApp": "See the app",
+    "hideApp": "Hide the app",
     "steps": {
       "desk": { "title": "Web dashboard", "text": "The dispatcher plans the trip at the desk." },
       "manager": { "title": "IS Manager", "text": "The manager follows it from the phone." },

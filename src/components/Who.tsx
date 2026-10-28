@@ -27,7 +27,9 @@ export function Who({ lng }: { lng: Locale }) {
       <div className={styles.grid} data-stagger>
         {fleets.map(({ id, icon: FleetIcon }) => (
           <article className={features.card} key={id}>
-            <span className={features.icon}><FleetIcon /></span>
+            <span className={features.icon}>
+              <FleetIcon />
+            </span>
             <h3>{t(`who.items.${id}.title`)}</h3>
             <p>{t(`who.items.${id}.text`)}</p>
           </article>

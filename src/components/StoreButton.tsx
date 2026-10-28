@@ -14,7 +14,15 @@ const storeMeta: Record<Store, { name: string; glyph: ReactNode }> = {
 /** Store badge-style button for dark sections. `url: null` renders a dimmed, non-clickable placeholder
  * (the card shows one "Coming soon" badge for all of its links). `small` is the translated caption
  * above the store name ("Download on the", "Get it on", …). */
-export function StoreButton({ store, url, small }: { store: Store; url: string | null; small: string }) {
+export function StoreButton({
+  store,
+  url,
+  small,
+}: {
+  store: Store;
+  url: string | null;
+  small: string;
+}) {
   const m = storeMeta[store];
   const inner = (
     <>
@@ -34,7 +42,12 @@ export function StoreButton({ store, url, small }: { store: Store; url: string |
     );
   }
   return (
-    <a className={styles.store} href={url} target="_blank" rel="noopener noreferrer">
+    <a
+      className={styles.store}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {inner}
     </a>
   );

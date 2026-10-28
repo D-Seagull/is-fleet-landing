@@ -30,6 +30,8 @@
     "title": "Vom Chaos<br/>zur <accent>Kontrolle</accent>",
     "sub": "<lead>Ein System für die ganze Flotte.</lead> Touren, Lkw, CMR-Frachtbriefe und das ganze Team — Disponenten, Manager und Fahrer — auf demselben Stand.",
     "trialSoon": "Kostenloser Test — bald verfügbar",
+    "showApp": "App ansehen",
+    "hideApp": "App ausblenden",
     "steps": {
       "desk": { "title": "Web-Dashboard", "text": "Der Disponent plant die Tour am Schreibtisch." },
       "manager": { "title": "IS Manager", "text": "Der Manager verfolgt sie auf dem Handy." },

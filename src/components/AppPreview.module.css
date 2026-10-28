@@ -1,0 +1,57 @@
+/* Phones: the mockups hide behind the toggle. From 640px they are always there and the toggle is gone. */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid var(--border-input);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  font: 600 15px var(--font-body);
+  color: var(--text);
+  cursor: pointer;
+}
+.toggle:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.chevron {
+  color: var(--text-3);
+  transition: transform 0.2s ease;
+}
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 639px) {
+  /* Two classes, so it wins over the stage's own `display: flex` */
+  .preview:not(.open) {
+    display: none;
+  }
+  .preview.open {
+    animation: preview-in 0.35s ease-out;
+  }
+}
+@keyframes preview-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (min-width: 640px) {
+  .toggle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+  .preview.open {
+    animation: none;
+  }
+}

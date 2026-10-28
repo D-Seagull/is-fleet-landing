@@ -30,6 +30,8 @@
     "title": "Nuo chaoso<br/>iki <accent>kontrolės</accent>",
     "sub": "<lead>Viena sistema visam autoparkui.</lead> Reisai, vilkikai, CMR ir visa komanda — dispečeriai, vadybininkai ir vairuotojai — mato tą patį.",
     "trialSoon": "Nemokamas bandomasis laikotarpis — jau netrukus",
+    "showApp": "Peržiūrėti programėlę",
+    "hideApp": "Slėpti programėlę",
     "steps": {
       "desk": { "title": "Žiniatinklio skydelis", "text": "Dispečeris planuoja reisą prie stalo." },
       "manager": { "title": "IS Manager", "text": "Vadybininkas jį seka telefone." },

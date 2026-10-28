@@ -8,7 +8,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 /**
  * Page-wide motion, driven by data attributes so section components stay server-rendered:
- *  - [data-hero-item] / [data-hero-dash] / [data-mock-item] — hero intro on load
+ *  - [data-hero-item] / [data-hero-dash] / [data-mock-item] — hero intro on load (app mockups not on tablets)
  *  - [data-pulse]   — endless ring pulse (the "Early access" badge dot)
  *  - [data-reveal]  — element fades up when it scrolls into view
  *  - [data-stagger] — its children fade up one after another
@@ -16,16 +16,25 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  *                     a plain fade-up of the phones on smaller screens
  * Nothing runs for visitors who prefer reduced motion (the <head> script doesn't add `motion` either).
  */
+/** Where the app mockups (web window + phones) move: the desktop layout, but not an upright touch
+ *  tablet (a big iPad gets the desktop layout; in landscape it keeps the story). Everywhere else —
+ *  phones (mockups behind a toggle, see AppPreview), tablets — they are shown as they are.
+ *  Keep in sync with globals.css (pre-hide) and Hero.module.css (sticky track). */
+const DESKTOP_MOTION = "(min-width: 900px) and (pointer: fine), (min-width: 900px) and (orientation: landscape)";
+
 export function Motion() {
   useGSAP(() => {
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      gsap
+      const intro = gsap
         .timeline({ defaults: { ease: "power3.out" } })
-        .fromTo("[data-hero-item]", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08 })
-        .fromTo("[data-hero-dash]", { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.9 }, "-=0.55")
-        .from("[data-mock-item]", { y: 10, autoAlpha: 0, duration: 0.45, stagger: 0.07 }, "-=0.45");
+        .fromTo("[data-hero-item]", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08 });
+      if (window.matchMedia(DESKTOP_MOTION).matches) {
+        intro
+          .fromTo("[data-hero-dash]", { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.9 }, "-=0.55")
+          .from("[data-mock-item]", { y: 10, autoAlpha: 0, duration: 0.45, stagger: 0.07 }, "-=0.45");
+      }
 
       gsap.fromTo(
         "[data-pulse]",
@@ -54,7 +63,9 @@ export function Motion() {
     // The hold itself is CSS (position: sticky in Hero.module.css, same media query); this only
     // scrubs the timeline over that stretch. Very short windows (< 560px) don't hold: the hero
     // would not fit, so it just scrolls.
-    mm.add("(min-width: 900px) and (min-height: 560px) and (prefers-reduced-motion: no-preference)", () => {
+    mm.add({ desktop: DESKTOP_MOTION, tall: "(min-height: 560px)", motion: "(prefers-reduced-motion: no-preference)" }, (ctx) => {
+      const { desktop, tall, motion } = ctx.conditions ?? {};
+      if (!desktop || !tall || !motion) return;
       const story = document.querySelector<HTMLElement>("[data-story]");
       if (!story) return;
       const steps = gsap.utils.toArray<HTMLElement>("[data-story-step]", story);
@@ -111,8 +122,10 @@ export function Motion() {
       };
     });
 
-    // Hero story, smaller screens: no pinning — the phones under the window just fade up.
-    mm.add("(max-width: 899px), (max-height: 559px)", () => {
+    // Hero story, desktops too short to hold the hero: the phones under the window just fade up.
+    mm.add({ desktop: DESKTOP_MOTION, short: "(max-height: 559px)" }, (ctx) => {
+      const { desktop, short } = ctx.conditions ?? {};
+      if (!desktop || !short) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       gsap.utils.toArray<HTMLElement>("[data-story-phone]").forEach((el) => {
         gsap.from(el, { y: 28, autoAlpha: 0, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
