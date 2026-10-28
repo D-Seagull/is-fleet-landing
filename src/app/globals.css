@@ -47,17 +47,27 @@ section[id] { scroll-margin-top: 80px; }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; }
 
 /* Motion (see components/Motion.tsx). The `motion` class is set by an inline script in <head> only when
-   the visitor allows motion, so hero pieces are hidden before first paint and GSAP fades them in.
-   If the script bundle never runs, the fallback animation shows them anyway after 3s. */
-.motion [data-hero-item] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
-/* The app window animates in on desktops only (DESKTOP_MOTION in Motion.tsx) */
-@media (min-width: 900px) and (pointer: fine), (min-width: 900px) and (orientation: landscape) {
-  .motion [data-hero-dash] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
+   the visitor allows motion. Everything GSAP fades in starts at opacity 0 here, before the first paint,
+   and GSAP takes it from 0 to 1 — no flash of the finished page first. If the script bundle doesn't
+   start within 3s, the <head> script drops `motion` and it all simply shows (layout.tsx). */
+.motion [data-hero-item],
+.motion [data-reveal],
+.motion [data-stagger] > * {
+  opacity: 0;
 }
-@keyframes motion-fallback { to { visibility: visible; } }
-/* Desktop: the phones wait for the hero's scroll story (none on upright tablets) */
+/* Desktop only (DESKTOP_MOTION in Motion.tsx): the app window fades in, the phones wait for the
+   scroll story, and the story's later steps start dimmed */
 @media (min-width: 900px) and (pointer: fine), (min-width: 900px) and (orientation: landscape) {
-  .motion [data-story-phone] { visibility: hidden; animation: motion-fallback 0s 3s forwards; }
+  .motion [data-hero-dash],
+  .motion [data-story-phone] {
+    opacity: 0;
+  }
+}
+@media (min-width: 900px) and (min-height: 560px) and (pointer: fine),
+  (min-width: 900px) and (min-height: 560px) and (orientation: landscape) {
+  .motion [data-story-step] + [data-story-step] {
+    opacity: 0.3;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

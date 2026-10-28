@@ -76,9 +76,10 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
     // suppressHydrationWarning: the inline script below adds `motion` to <html> before React hydrates.
     <html lang={lng} className={`${manrope.variable} ${plex.variable} ${geist.variable}`} suppressHydrationWarning>
       <body>
-        {/* Hide the hero pieces before first paint so GSAP can fade them in without a flash (see globals.css). */}
+        {/* Hide the animated pieces before first paint so GSAP can fade them in without a flash (see
+            globals.css). If Motion.tsx hasn't started after 3s (slow or blocked bundle), show everything. */}
         <Script id="motion-flag" strategy="beforeInteractive">
-          {"if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches)document.documentElement.classList.add('motion')"}
+          {"(function(d){if(!window.matchMedia('(prefers-reduced-motion: no-preference)').matches)return;d.classList.add('motion');setTimeout(function(){if(!('motionReady' in d.dataset))d.classList.remove('motion')},3000)})(document.documentElement)"}
         </Script>
         <I18nProvider lng={lng} landing={resources[lng]}>
           {children}

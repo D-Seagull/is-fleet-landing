@@ -27,6 +27,13 @@ export function Motion() {
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // The pieces start at opacity 0 in CSS (globals.css, under html.motion) and every tween below
+      // fades them *to* 1 — so nothing is painted, hidden and shown again. motionReady stops the
+      // <head> fallback that would otherwise drop `motion` when this bundle is slow (layout.tsx).
+      const root = document.documentElement;
+      root.dataset.motionReady = "";
+      root.classList.add("motion");
+
       const intro = gsap
         .timeline({ defaults: { ease: "power3.out" } })
         .fromTo("[data-hero-item]", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08 });
@@ -42,15 +49,16 @@ export function Motion() {
         { scale: 3, opacity: 0, duration: 1.6, ease: "power2.out", repeat: -1, repeatDelay: 0.3 },
       );
 
-      const reveal = { y: 28, autoAlpha: 0, duration: 0.7, ease: "power2.out" };
+      const hidden = { y: 28, autoAlpha: 0 };
+      const shown = { y: 0, autoAlpha: 1, duration: 0.7, ease: "power2.out" };
 
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
-        gsap.from(el, { ...reveal, scrollTrigger: { trigger: el, start: "top 88%", once: true } });
+        gsap.fromTo(el, hidden, { ...shown, scrollTrigger: { trigger: el, start: "top 88%", once: true } });
       });
 
       gsap.utils.toArray<HTMLElement>("[data-stagger]").forEach((group) => {
-        gsap.from(group.children, {
-          ...reveal,
+        gsap.fromTo(group.children, hidden, {
+          ...shown,
           stagger: 0.08,
           scrollTrigger: { trigger: group, start: "top 88%", once: true },
         });
@@ -128,7 +136,11 @@ export function Motion() {
       if (!desktop || !short) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       gsap.utils.toArray<HTMLElement>("[data-story-phone]").forEach((el) => {
-        gsap.from(el, { y: 28, autoAlpha: 0, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
+        gsap.fromTo(
+          el,
+          { y: 28, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } },
+        );
       });
     });
 
