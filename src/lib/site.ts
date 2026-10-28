@@ -1,10 +1,19 @@
 // Every outbound link and contact the landing uses, in one place.
 
+// Addresses come only from the environment (.env.local locally, Vercel project settings in
+// production; see .env.example). NEXT_PUBLIC_* values are baked in at build time, so a missing
+// one fails the build instead of shipping a page that points nowhere.
+function requireUrl(name: string, value: string | undefined): string {
+  if (!value) throw new Error(`${name} is not set — see .env.example`);
+  return value.replace(/\/+$/, "");
+}
+
 /** Where the landing itself is published — absolute URLs for hreflang / canonical / Open Graph. */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://isfleet.eu";
-export const APP_URL = "https://app.isfleet.eu";
+export const SITE_URL = requireUrl("NEXT_PUBLIC_SITE_URL", process.env.NEXT_PUBLIC_SITE_URL);
+/** The web app: Log in, privacy, terms. */
+export const APP_URL = requireUrl("NEXT_PUBLIC_APP_URL", process.env.NEXT_PUBLIC_APP_URL);
 /** Backend the public forms post to (POST /public/trial-signup, /public/demo-request). */
-export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://api.isfleet.eu";
+export const API_URL = requireUrl("NEXT_PUBLIC_API_URL", process.env.NEXT_PUBLIC_API_URL);
 /** Self-serve trial is closed while the app is in testing: the CTAs book a demo and the form
  *  shows the trial as "soon". Flip to true to open sign-ups (the backend side is live). */
 export const TRIAL_OPEN = false;
