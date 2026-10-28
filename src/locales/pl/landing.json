@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "title": "IS Fleet — Od chaosu do kontroli. Jeden system dla całej floty",
+    "description": "Jeden system dla całej floty: trasy, ciężarówki, CMR-y i cały zespół — dyspozytorzy, menedżerowie i kierowcy — widzą to samo."
+  },
+  "cta": {
+    "trial": "Wypróbuj za darmo",
+    "demo": "Umów demo"
+  },
+  "nav": {
+    "compare": "Dlaczego IS Fleet",
+    "features": "Funkcje",
+    "apps": "Aplikacje",
+    "who": "Dla kogo",
+    "main": "Menu główne",
+    "mobile": "Menu mobilne",
+    "login": "Zaloguj się",
+    "home": "IS Fleet — strona główna",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu"
+  },
+  "lang": {
+    "label": "Język",
+    "suggest": "Ta strona jest dostępna po polsku.",
+    "switch": "Przejdź na polski",
+    "dismiss": "Nie, dziękuję"
+  },
+  "hero": {
+    "badge": "Wczesny dostęp — dołącz do pierwszych flot",
+    "title": "Od chaosu<br/>do <accent>kontroli</accent>",
+    "sub": "<lead>Jeden system dla całej floty.</lead> Trasy, ciężarówki, CMR-y i cały zespół — dyspozytorzy, menedżerowie i kierowcy — widzą to samo.",
+    "trialSoon": "Darmowy okres próbny — już wkrótce",
+    "steps": {
+      "desk": { "title": "Panel webowy", "text": "Dyspozytor planuje trasę przy biurku." },
+      "manager": { "title": "IS Manager", "text": "Menedżer śledzi ją w telefonie." },
+      "driver": { "title": "IS Driver", "text": "Kierowca dostaje ją w kabinie." }
+    }
+  },
+  "compare": {
+    "eyebrow": "Dlaczego IS Fleet",
+    "title": "Twój dyspozytor nie powinien być jedynym systemem w firmie.",
+    "oldTitle": "Po staremu",
+    "newTitle": "Z IS Fleet",
+    "rows": {
+      "trips": {
+        "old": "Trasy rozrzucone po czatach, arkuszach i notesach.",
+        "new": "Każda trasa w jednym systemie — punkty, okna czasowe, ciężarówka i kierowca."
+      },
+      "cmr": {
+        "old": "Zdjęcia CMR giną w czatach — nigdy ich nie ma, gdy pyta księgowość.",
+        "new": "CMR-y przypięte do trasy — znalezione w kilka sekund, gdy pyta księgowość."
+      },
+      "where": {
+        "old": "„Gdzie jest auto?” — to kolejny telefon.",
+        "new": "Widzisz, na jakim etapie jest każda trasa — bez sięgania po telefon."
+      },
+      "swap": {
+        "old": "Zmiana kierowcy lub pojazdu to ręczne przesyłanie wszystkiego od nowa.",
+        "new": "Zamiana ciężarówki lub kierowcy jednym kliknięciem — historia i pliki idą za trasą."
+      },
+      "head": {
+        "old": "Cała firma działa dzięki pamięci jednego dyspozytora.",
+        "new": "Każda trasa jest w systemie, a nie w czyjejś głowie."
+      }
+    }
+  },
+  "features": {
+    "title": "Wszystko, czego potrzebuje trasa, w jednym miejscu.",
+    "sub": "Zbudowany wokół trasy — jednostki, na której naprawdę opiera się Twój biznes. Mniej dopytywania, mniej telefonów, nic nie ginie między aplikacjami.",
+    "items": {
+      "trips": {
+        "title": "Zarządzanie trasami",
+        "text": "Załadunek, rozładunek i punkty pośrednie z datami i oknami czasowymi. Trasa przechodzi od zaplanowanej do dostarczonej — bez ciągłego dopytywania o status."
+      },
+      "fleet": {
+        "title": "Cała flota na widoku",
+        "text": "Każda ciężarówka, jej trasa i kto siedzi za kółkiem — na pierwszy rzut oka, bez ani jednego telefonu. Kierowcy widoczni jako dostępni, zajęci lub na odpoczynku."
+      },
+      "docs": {
+        "title": "Dokumenty przy każdej trasie",
+        "text": "CMR-y, dokumenty dostawy i zdjęcia zapisane przy trasie, do której należą. Znajdziesz je w kilka sekund po numerze trasy, dacie lub kodzie pocztowym — gdy pyta księgowość."
+      },
+      "swap": {
+        "title": "Zamiana kierowcy lub pojazdu jednym kliknięciem",
+        "text": "Przenieś trasę na inną ciężarówkę lub do innego kierowcy. Historia i dokumenty idą razem z nią — nic nie trzeba wysyłać ani wpisywać od nowa."
+      },
+      "notify": {
+        "title": "Powiadomienia w czasie rzeczywistym",
+        "text": "Nowe trasy, zmiany i dokumenty trafiają na właściwy telefon w chwili, gdy się pojawiają — i nie przeszkadzają kierowcy, gdy odpoczywa."
+      },
+      "context": {
+        "title": "Komunikacja w kontekście trasy",
+        "text": "Wiadomości są przy trasie, której dotyczą, obok jej punktów i dokumentów — mniej dopytywania i wszyscy widzą to samo. Po zamknięciu trasy trafiają do archiwum."
+      }
+    }
+  },
+  "apps": {
+    "eyebrow": "Trzy aplikacje, jedno konto",
+    "title": "Przy biurku, w telefonie, w kabinie.",
+    "soon": "Wkrótce",
+    "items": {
+      "desktop": {
+        "label": "Dla dyspozytorów",
+        "title": "Panel webowy",
+        "text": "Zaplanuj trasę przy biurku — punkty, okna czasowe, ciężarówka i kierowca. W przeglądarce lub jako aplikacja na Windows i macOS, która sama się aktualizuje."
+      },
+      "manager": {
+        "label": "Dla menedżerów w drodze",
+        "title": "IS Manager",
+        "text": "Twoje ciężarówki, trasy i kierowcy w kieszeni — na iOS i Androidzie, z powiadomieniem push, gdy coś się zmieni."
+      },
+      "driver": {
+        "label": "Dla kierowców",
+        "title": "IS Driver",
+        "text": "Trasa trafia prosto do kabiny: adresy, dokumenty i czat trasy. Logowanie numerem telefonu i kodem SMS."
+      }
+    }
+  },
+  "store": {
+    "appStore": "Pobierz w",
+    "googlePlay": "Pobierz z",
+    "windows": "Pobierz na",
+    "macos": "Pobierz na"
+  },
+  "who": {
+    "title": "Dla kogo",
+    "sub": "Stworzony dla transportu drogowego — flota dowolnej wielkości, przewozy krajowe i międzynarodowe.",
+    "items": {
+      "size": {
+        "title": "Floty każdej wielkości",
+        "text": "Od kilku ciężarówek po setki — zaprowadź porządek bez ciężkiego TMS-a. Start w kilka dni."
+      },
+      "intl": {
+        "title": "Przewoźnicy międzynarodowi",
+        "text": "Każda trasa, CMR i dokument w jednym miejscu, przez wszystkie granice. Nic nie ginie między krajami."
+      },
+      "mixed": {
+        "title": "Podwykonawcy i floty mieszane",
+        "text": "Własne ciężarówki i zatrudnieni kierowcy na jednej tablicy. Wszyscy widzą te same trasy."
+      },
+      "lang": {
+        "title": "Zespoły wielojęzyczne",
+        "text": "Dla flot, w których menedżerowie i kierowcy mówią różnymi językami: adresy, okna czasowe i dokumenty zawsze są pod ręką przy trasie — mniej wyjaśniania przez telefon."
+      }
+    }
+  },
+  "demo": {
+    "eyebrow": "Skontaktuj się z nami",
+    "integrations": "Jesteśmy otwarci na integracje — powiedz, z czego korzystasz",
+    "title": "Bądź jedną z pierwszych flot w <accent>IS Fleet.</accent>",
+    "text": "Opowiedz nam o swojej flocie. Zespoły z wczesnym dostępem dostają wdrożenie z naszą pomocą, demo na własnych trasach i bezpośredni kontakt z ludźmi, którzy budują produkt."
+  },
+  "form": {
+    "tabsLabel": "Co chcesz zrobić?",
+    "tabTrial": "Wypróbuj za darmo",
+    "tabDemo": "Umów demo",
+    "soon": "Wkrótce",
+    "name": "Imię i nazwisko",
+    "namePlaceholder": "Jan Kowalski",
+    "company": "Firma",
+    "companyPlaceholder": "Nazwa Twojej firmy",
+    "email": "Służbowy e-mail",
+    "emailPlaceholder": "ty@firma.pl",
+    "trucks": "Liczba ciężarówek",
+    "message": "Co powinniśmy wiedzieć?",
+    "messagePlaceholder": "Opowiedz o swojej flocie, trasach lub szczególnych wymaganiach…",
+    "sending": "Wysyłanie…",
+    "submitTrial": "Wypróbuj za darmo",
+    "submitDemo": "Umów demo",
+    "trialHint": "Wyślemy Ci e-mailem link do ustawienia hasła. Karta nie jest potrzebna.",
+    "done": {
+      "trialTitle": "Sprawdź skrzynkę",
+      "trialText": "Wysłaliśmy link na adres <b>{{email}}</b>. Otwórz go, aby ustawić hasło i zalogować się do nowego obszaru roboczego — a potem dodaj ciężarówki, menedżerów i kierowców.",
+      "spam": "Nie ma wiadomości po kilku minutach? Sprawdź folder ze spamem.",
+      "demoTitle": "Dziękujemy — mamy Twoje zgłoszenie",
+      "demoText": "Wkrótce odezwiemy się na adres <b>{{email}}</b>, żeby umówić demo na Twoich trasach."
+    },
+    "errors": {
+      "exists": "„{{company}}” jest już w IS Fleet. Poproś swojego team leadera o zaproszenie albo napisz na {{email}}.",
+      "tooMany": "Zbyt wiele prób. Spróbuj ponownie za godzinę.",
+      "invalid": "Sprawdź pola i spróbuj ponownie.",
+      "generic": "Coś poszło nie tak. Spróbuj ponownie albo napisz do nas na {{email}}."
+    }
+  },
+  "footer": {
+    "backToTop": "IS Fleet — do góry",
+    "label": "Stopka",
+    "privacy": "Polityka prywatności",
+    "terms": "Regulamin"
+  },
+  "mock": {
+    "online": "online",
+    "onlineCap": "Online",
+    "status": {
+      "ON_WAY": "W drodze",
+      "ON_SITE": "Na miejscu",
+      "LOADED": "Załadowana"
+    },
+    "myTrucks": "Moje ciężarówki",
+    "chat": "Czat",
+    "trips": "Trasy",
+    "trucks": "Ciężarówki",
+    "drivers": "Kierowcy",
+    "documents": "Dokumenty",
+    "alarm": "Budzik",
+    "info": "Info",
+    "msg": {
+      "loading": "Załadunek w Poznaniu dziś 08:00–10:00, rampa 4.",
+      "onSite": "Na miejscu, czekam na rampę.",
+      "loaded": "Załadowany, 33 palety. Wyjeżdżam z Poznania.",
+      "slot": "Rozładunek przesunięty na śr. 06:00 — wcześniej, niż planowano.",
+      "slotShort": "Rozładunek przesunięty na śr. 06:00."
+    },
+    "desk": {
+      "aria": "Aplikacja webowa IS Fleet: ciężarówki menedżera ze statusem tras oraz bieżąca trasa wybranej ciężarówki — przebieg, dokumenty i rozmowa z kierowcą w trasie",
+      "driver": "Kierowca: {{name}} · online",
+      "newTrip": "Nowa trasa",
+      "typeMessage": "Napisz wiadomość…"
+    },
+    "manager": {
+      "aria": "IS Manager na iPhone i Androida: ekran główny z sekcjami Moje ciężarówki, czat, trasy, ciężarówki i kierowcy",
+      "fleetTrips": "Twoja flota i trasy",
+      "role": "Menedżer · online"
+    },
+    "driver": {
+      "aria": "IS Driver: boczne menu otwarte nad bieżącą trasą — trasa, moje trasy, moja ciężarówka, dokumenty, czat, budzik i przypisany menedżer",
+      "brand": "Driver",
+      "trip": "Trasa",
+      "myTrips": "Moje trasy",
+      "myTruck": "Moja ciężarówka",
+      "noUnread": "Brak nieprzeczytanych",
+      "manager": "Menedżer",
+      "loadingStop": "1. Załadunek · pon. 08:00–10:00",
+      "unloadingStop": "2. Rozładunek · śr. 06:00–09:00",
+      "tripChat": "Czat trasy",
+      "message": "Wiadomość…"
+    }
+  }
+}

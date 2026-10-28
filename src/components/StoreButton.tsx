@@ -4,22 +4,23 @@ import type { Store } from "@/lib/site";
 import { AppleGlyph, PlayGlyph, WindowsGlyph } from "./icons";
 import styles from "./StoreButton.module.css";
 
-const storeMeta: Record<Store, { small: string; name: string; glyph: ReactNode }> = {
-  appStore: { small: "Download on the", name: "App Store", glyph: <AppleGlyph /> },
-  googlePlay: { small: "Get it on", name: "Google Play", glyph: <PlayGlyph /> },
-  windows: { small: "Download for", name: "Windows", glyph: <WindowsGlyph /> },
-  macos: { small: "Download for", name: "macOS", glyph: <AppleGlyph /> },
+const storeMeta: Record<Store, { name: string; glyph: ReactNode }> = {
+  appStore: { name: "App Store", glyph: <AppleGlyph /> },
+  googlePlay: { name: "Google Play", glyph: <PlayGlyph /> },
+  windows: { name: "Windows", glyph: <WindowsGlyph /> },
+  macos: { name: "macOS", glyph: <AppleGlyph /> },
 };
 
 /** Store badge-style button for dark sections. `url: null` renders a dimmed, non-clickable placeholder
- * (the card shows one "Coming soon" badge for all of its links). */
-export function StoreButton({ store, url }: { store: Store; url: string | null }) {
+ * (the card shows one "Coming soon" badge for all of its links). `small` is the translated caption
+ * above the store name ("Download on the", "Get it on", …). */
+export function StoreButton({ store, url, small }: { store: Store; url: string | null; small: string }) {
   const m = storeMeta[store];
   const inner = (
     <>
       {m.glyph}
       <span className={styles.text}>
-        <span className={styles.small}>{m.small}</span>
+        <span className={styles.small}>{small}</span>
         <span className={styles.name}>{m.name}</span>
       </span>
     </>

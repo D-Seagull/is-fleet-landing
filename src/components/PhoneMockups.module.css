@@ -107,7 +107,7 @@
 .drMe { display: flex; align-items: center; gap: 8px; padding-top: 9px; border-top: 1px solid var(--p-border); color: var(--p-muted-fg); }
 .drManager { display: flex; align-items: center; gap: 8px; color: var(--p-muted-fg); }
 .drMgrAvatar { width: 22px; height: 22px; font-size: 7.5px; }
-.drManager em { font-style: normal; font-size: 7px; letter-spacing: .06em; }
+.drManager em { font-style: normal; font-size: 7px; letter-spacing: .06em; text-transform: uppercase; }
 /* Assigned manager row — smaller than the driver's own card, as in the app */
 .drManager .hManagerText b { font-size: 8.5px; }
 .drManager .hManagerText span { font-size: 7.5px; }

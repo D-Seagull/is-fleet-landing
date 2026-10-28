@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "title": "IS Fleet — From chaos to control. One system for the whole fleet",
+    "description": "One system for the whole fleet: trips, trucks, CMRs and the whole team — dispatchers, managers and drivers — on the same page."
+  },
+  "cta": {
+    "trial": "Start Free Trial",
+    "demo": "Book a Demo"
+  },
+  "nav": {
+    "compare": "Why IS Fleet",
+    "features": "Features",
+    "apps": "Apps",
+    "who": "Who it's for",
+    "main": "Main",
+    "mobile": "Mobile",
+    "login": "Log in",
+    "home": "IS Fleet home",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "lang": {
+    "label": "Language",
+    "suggest": "This page is also available in English.",
+    "switch": "Switch to English",
+    "dismiss": "No, thanks"
+  },
+  "hero": {
+    "badge": "Early access — join the first fleets",
+    "title": "From chaos<br/>to <accent>control</accent>",
+    "sub": "<lead>One system for the whole fleet.</lead> Trips, trucks, CMRs and the whole team — dispatchers, managers and drivers — on the same page.",
+    "trialSoon": "Free trial — coming soon",
+    "steps": {
+      "desk": { "title": "Web dashboard", "text": "The dispatcher plans the trip at the desk." },
+      "manager": { "title": "IS Manager", "text": "The manager follows it from the phone." },
+      "driver": { "title": "IS Driver", "text": "The driver gets it in the cab." }
+    }
+  },
+  "compare": {
+    "eyebrow": "Why IS Fleet",
+    "title": "Your dispatcher shouldn't be the only system you have.",
+    "oldTitle": "The old way",
+    "newTitle": "With IS Fleet",
+    "rows": {
+      "trips": {
+        "old": "Trips scattered across chats, spreadsheets and notebooks.",
+        "new": "Every trip in one system — stops, time windows, truck and driver."
+      },
+      "cmr": {
+        "old": "CMR photos buried in chats — never there when accounting asks.",
+        "new": "CMRs attached to the trip, found in seconds when accounting asks."
+      },
+      "where": {
+        "old": "“Where’s the truck?” means another phone call.",
+        "new": "See where every trip stands — without picking up the phone."
+      },
+      "swap": {
+        "old": "Changing a driver or vehicle means re-sending everything by hand.",
+        "new": "Swap a truck or driver in one click — history and files follow."
+      },
+      "head": {
+        "old": "Your whole operation lives in one dispatcher’s head.",
+        "new": "Every trip is in the system, not someone’s head."
+      }
+    }
+  },
+  "features": {
+    "title": "Everything a trip needs, in one place.",
+    "sub": "Built around the trip — the unit your business actually runs on. Less chasing, fewer calls, nothing lost between apps.",
+    "items": {
+      "trips": {
+        "title": "Trip Management",
+        "text": "Loading, unloading and waypoints with dates and time windows. Watch a trip go from planned to delivered — without chasing updates."
+      },
+      "fleet": {
+        "title": "Fleet Visibility",
+        "text": "See every truck, the trip it’s on and who’s driving — at a glance, without a single call. Drivers show as online, busy or resting."
+      },
+      "docs": {
+        "title": "Documents per Trip",
+        "text": "CMRs, delivery notes and photos filed under the trip they belong to. Found in seconds by trip number, date or postcode — there when accounting asks."
+      },
+      "swap": {
+        "title": "One-Click Driver/Vehicle Swap",
+        "text": "Move a trip to another truck or driver. Its history and documents move with it — nothing re-sent, nothing re-typed."
+      },
+      "notify": {
+        "title": "Real-Time Notifications",
+        "text": "New trips, changes and documents reach the right phone the moment they happen — and stay quiet while a driver rests."
+      },
+      "context": {
+        "title": "Communication in Context",
+        "text": "Messages live on the trip they’re about, next to its stops and documents — so you ask less and everyone sees the same thing. Archived when the trip closes."
+      }
+    }
+  },
+  "apps": {
+    "eyebrow": "Three apps, one account",
+    "title": "At the desk, on the phone, in the cab.",
+    "soon": "Coming soon",
+    "items": {
+      "desktop": {
+        "label": "For dispatchers",
+        "title": "Web dashboard",
+        "text": "Plan the trip at the desk — stops, time windows, truck and driver. In the browser or as a desktop app for Windows and macOS that updates itself."
+      },
+      "manager": {
+        "label": "For managers on the move",
+        "title": "IS Manager",
+        "text": "Your trucks, trips and drivers in your pocket on iOS and Android, with a push when something changes."
+      },
+      "driver": {
+        "label": "For drivers",
+        "title": "IS Driver",
+        "text": "The trip lands in the cab: addresses, documents and the trip chat. Sign in with a phone number and an SMS code."
+      }
+    }
+  },
+  "store": {
+    "appStore": "Download on the",
+    "googlePlay": "Get it on",
+    "windows": "Download for",
+    "macos": "Download for"
+  },
+  "who": {
+    "title": "Who it's for",
+    "sub": "Built for road freight — any fleet size, domestic or cross-border.",
+    "items": {
+      "size": {
+        "title": "Fleets of any size",
+        "text": "From a handful of trucks to hundreds — get organized without a heavy TMS. Up and running in days."
+      },
+      "intl": {
+        "title": "International hauliers",
+        "text": "Every trip, CMR and document in one place across borders. Nothing lost between countries."
+      },
+      "mixed": {
+        "title": "Subcontractors & mixed fleets",
+        "text": "Owned trucks and hired drivers on one board. Everyone sees the same trips."
+      },
+      "lang": {
+        "title": "Mixed-language teams",
+        "text": "Built for fleets where managers and drivers don’t share a language — so addresses and instructions don’t get lost in translation."
+      }
+    }
+  },
+  "demo": {
+    "eyebrow": "Get in touch",
+    "integrations": "Open to integrations — tell us your stack",
+    "title": "Be one of the first fleets on <accent>IS Fleet.</accent>",
+    "text": "Tell us about your fleet. Early-access teams get hands-on onboarding, a demo on their real routes and a direct line to the people building it."
+  },
+  "form": {
+    "tabsLabel": "What would you like to do?",
+    "tabTrial": "Start free trial",
+    "tabDemo": "Book a demo",
+    "soon": "Soon",
+    "name": "Your name",
+    "namePlaceholder": "John Doe",
+    "company": "Company",
+    "companyPlaceholder": "Your company name",
+    "email": "Work email",
+    "emailPlaceholder": "you@company.com",
+    "trucks": "Number of trucks",
+    "message": "Anything we should know?",
+    "messagePlaceholder": "Tell us about your fleet, routes or special requirements…",
+    "sending": "Sending…",
+    "submitTrial": "Start free trial",
+    "submitDemo": "Book a Demo",
+    "trialHint": "We'll email you a link to set your password. No card needed.",
+    "done": {
+      "trialTitle": "Check your inbox",
+      "trialText": "We've sent a link to <b>{{email}}</b>. Open it to set your password and sign in to your new workspace — then add your trucks, managers and drivers.",
+      "spam": "No email in a few minutes? Check the spam folder.",
+      "demoTitle": "Thanks — we got your request",
+      "demoText": "We'll get back to you at <b>{{email}}</b> shortly to set up a demo on your own routes."
+    },
+    "errors": {
+      "exists": "“{{company}}” is already on IS Fleet. Ask your team lead for an invite, or write to {{email}}.",
+      "tooMany": "Too many attempts. Please try again in an hour.",
+      "invalid": "Please check the fields and try again.",
+      "generic": "Something went wrong. Please try again, or write to us at {{email}}."
+    }
+  },
+  "footer": {
+    "backToTop": "IS Fleet — back to top",
+    "label": "Footer",
+    "privacy": "Privacy policy",
+    "terms": "Terms"
+  },
+  "mock": {
+    "online": "online",
+    "onlineCap": "Online",
+    "status": {
+      "ON_WAY": "On Way",
+      "ON_SITE": "On Site",
+      "LOADED": "Loaded"
+    },
+    "myTrucks": "My Trucks",
+    "chat": "Chat",
+    "trips": "Trips",
+    "trucks": "Trucks",
+    "drivers": "Drivers",
+    "documents": "Documents",
+    "alarm": "Alarm",
+    "info": "Info",
+    "msg": {
+      "loading": "Loading in Poznań today 08:00–10:00, dock 4.",
+      "onSite": "On site, waiting for the dock.",
+      "loaded": "Loaded, 33 pallets. Leaving Poznań now.",
+      "slot": "Unloading slot moved to Wed 06:00 — earlier than planned.",
+      "slotShort": "Unloading slot moved to Wed 06:00."
+    },
+    "desk": {
+      "aria": "The IS Fleet web app: a manager's trucks with their trip status, and the selected truck's current trip — route, documents and the trip conversation with the driver",
+      "driver": "Driver: {{name}} · online",
+      "newTrip": "New Trip",
+      "typeMessage": "Type a message…"
+    },
+    "manager": {
+      "aria": "IS Manager on iPhone and Android: the home screen with My Trucks, chat, trips, trucks and drivers",
+      "fleetTrips": "Your fleet & trips",
+      "role": "Manager · online"
+    },
+    "driver": {
+      "aria": "IS Driver: the side menu open over the current trip — trip, my trips, my truck, documents, chat, alarm and the assigned manager",
+      "brand": "Driver",
+      "trip": "Trip",
+      "myTrips": "My Trips",
+      "myTruck": "My Truck",
+      "noUnread": "No unread messages",
+      "manager": "Manager",
+      "loadingStop": "1. Loading · Mon 08:00–10:00",
+      "unloadingStop": "2. Unloading · Wed 06:00–09:00",
+      "tripChat": "Trip chat",
+      "message": "Message…"
+    }
+  }
+}

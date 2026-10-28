@@ -20,7 +20,8 @@
   :global(html.motion) .track::after { content: ""; display: block; height: 960px; }
   :global(html.motion) .bg { position: sticky; top: 0; }
 }
-.hero { padding: 40px 0 56px; display: grid; gap: 40px; align-items: center; }
+/* padding-block only: the side padding is ui.wrap's gutter */
+.hero { padding-block: 40px 56px; display: grid; gap: 40px; align-items: center; }
 .copy { position: relative; isolation: isolate; container-type: inline-size; display: flex; flex-direction: column; gap: 22px; }
 /* Faint frosted patch behind the headline and slogan: softens the route map under the text (its
    silhouette stays readable) and fades
@@ -40,8 +41,9 @@
 /* Pulse ring, animated by Motion.tsx (static, hidden ring when motion is reduced). */
 .badgePulse { position: absolute; inset: 0; border-radius: 50%; background: var(--blue); opacity: 0; }
 .title { font-family: var(--font-display); font-weight: 800; /* Sized from the copy column (cqi), so "From chaos" / "to control" always stay on two lines;
-   vh keeps the pinned hero within short laptop screens. */
-  font-size: clamp(40px, min(19cqi, 12.8vh), 120px); line-height: .96; letter-spacing: -0.045em; }
+   vh keeps the pinned hero within short laptop screens. --title-em (Hero.tsx) is the widest line's
+   width in em, so every language fills the column: English (5.2em) comes out at ~19cqi. */
+  font-size: clamp(34px, min(calc(98.5cqi / var(--title-em, 5.2)), 12.8vh), 120px); line-height: .96; letter-spacing: -0.045em; }
 .accent { background: linear-gradient(100deg, var(--cyan) 0%, var(--blue) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .sub { font-size: clamp(17px, 2vw, 21px); color: var(--text-2); max-width: 540px; }
 .subLead { color: var(--text); font-weight: 600; }
@@ -71,7 +73,7 @@
   /* The tilt brings the right edge closer, so it grows past its box: keep it clear of the screen edge */
   .tilt { transform: perspective(1800px) rotateY(-9deg) rotateX(3deg) rotateZ(-1deg); transform-origin: 70% 50%; margin-right: 14px; }
   /* Pinned under the 80px header while the story scrolls, so it has to fit one screen */
-  .hero { grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr); gap: 48px; padding: 40px 0 48px; }
+  .hero { grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr); gap: 48px; padding-block: 40px 48px; }
   .steps { display: flex; }
   .stage { padding-bottom: 200px; }
   .phones { position: absolute; left: -44px; right: 8px; bottom: 0; margin: 0; justify-content: space-between; align-items: flex-end; zoom: .82; }
@@ -88,7 +90,7 @@
    Real laptop viewports are short (1366×768 → ~650px, 1536×864 → ~750px once the browser
    chrome is taken), so tighten spacing and scale the device stage down by height. */
 @media (min-width: 900px) and (max-height: 820px) {
-  .hero { padding: 24px 0; }
+  .hero { padding-block: 24px; }
   .copy { gap: 16px; }
   .stage { zoom: .88; }
 }

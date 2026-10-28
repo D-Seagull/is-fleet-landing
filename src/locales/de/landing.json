@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "title": "IS Fleet — Vom Chaos zur Kontrolle. Ein System für die ganze Flotte",
+    "description": "Ein System für die ganze Flotte: Touren, Lkw, CMR-Frachtbriefe und das ganze Team — Disponenten, Manager und Fahrer — auf demselben Stand."
+  },
+  "cta": {
+    "trial": "Kostenlos testen",
+    "demo": "Demo buchen"
+  },
+  "nav": {
+    "compare": "Warum IS Fleet",
+    "features": "Funktionen",
+    "apps": "Apps",
+    "who": "Für wen",
+    "main": "Hauptmenü",
+    "mobile": "Mobiles Menü",
+    "login": "Anmelden",
+    "home": "IS Fleet — Startseite",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  },
+  "lang": {
+    "label": "Sprache",
+    "suggest": "Diese Seite gibt es auch auf Deutsch.",
+    "switch": "Auf Deutsch lesen",
+    "dismiss": "Nein, danke"
+  },
+  "hero": {
+    "badge": "Early Access — gehören Sie zu den ersten Flotten",
+    "title": "Vom Chaos<br/>zur <accent>Kontrolle</accent>",
+    "sub": "<lead>Ein System für die ganze Flotte.</lead> Touren, Lkw, CMR-Frachtbriefe und das ganze Team — Disponenten, Manager und Fahrer — auf demselben Stand.",
+    "trialSoon": "Kostenloser Test — bald verfügbar",
+    "steps": {
+      "desk": { "title": "Web-Dashboard", "text": "Der Disponent plant die Tour am Schreibtisch." },
+      "manager": { "title": "IS Manager", "text": "Der Manager verfolgt sie auf dem Handy." },
+      "driver": { "title": "IS Driver", "text": "Der Fahrer bekommt sie ins Fahrerhaus." }
+    }
+  },
+  "compare": {
+    "eyebrow": "Warum IS Fleet",
+    "title": "Ihr Disponent sollte nicht Ihr einziges System sein.",
+    "oldTitle": "Bisher",
+    "newTitle": "Mit IS Fleet",
+    "rows": {
+      "trips": {
+        "old": "Touren verstreut über Chats, Tabellen und Notizbücher.",
+        "new": "Jede Tour in einem System — Stopps, Zeitfenster, Lkw und Fahrer."
+      },
+      "cmr": {
+        "old": "CMR-Fotos gehen in Chats unter — nie zur Hand, wenn die Buchhaltung fragt.",
+        "new": "CMRs hängen an der Tour — in Sekunden gefunden, wenn die Buchhaltung fragt."
+      },
+      "where": {
+        "old": "„Wo ist der Lkw?“ heißt: noch ein Anruf.",
+        "new": "Sehen, wo jede Tour steht — ohne zum Telefon zu greifen."
+      },
+      "swap": {
+        "old": "Fahrer- oder Fahrzeugwechsel heißt: alles von Hand neu verschicken.",
+        "new": "Lkw oder Fahrer mit einem Klick tauschen — Verlauf und Dateien ziehen mit."
+      },
+      "head": {
+        "old": "Der ganze Betrieb steckt im Kopf eines einzigen Disponenten.",
+        "new": "Jede Tour steht im System, nicht in jemandes Kopf."
+      }
+    }
+  },
+  "features": {
+    "title": "Alles, was eine Tour braucht, an einem Ort.",
+    "sub": "Um die Tour herum gebaut — die Einheit, von der Ihr Geschäft tatsächlich lebt. Weniger Nachhaken, weniger Anrufe, nichts geht zwischen Apps verloren.",
+    "items": {
+      "trips": {
+        "title": "Tourenmanagement",
+        "text": "Beladung, Entladung und Zwischenstopps mit Datum und Zeitfenster. Verfolgen Sie jede Tour von geplant bis zugestellt — ohne ständig nachzufragen."
+      },
+      "fleet": {
+        "title": "Die ganze Flotte im Blick",
+        "text": "Jeder Lkw, seine aktuelle Tour und wer am Steuer sitzt — auf einen Blick, ohne einen einzigen Anruf. Fahrer werden als online, beschäftigt oder in Ruhezeit angezeigt."
+      },
+      "docs": {
+        "title": "Dokumente pro Tour",
+        "text": "CMRs, Lieferscheine und Fotos liegen bei der Tour, zu der sie gehören. In Sekunden gefunden — nach Tournummer, Datum oder Postleitzahl — genau dann, wenn die Buchhaltung fragt."
+      },
+      "swap": {
+        "title": "Fahrer- oder Fahrzeugwechsel mit einem Klick",
+        "text": "Übergeben Sie eine Tour an einen anderen Lkw oder Fahrer. Verlauf und Dokumente ziehen mit — nichts neu verschicken, nichts neu abtippen."
+      },
+      "notify": {
+        "title": "Benachrichtigungen in Echtzeit",
+        "text": "Neue Touren, Änderungen und Dokumente landen sofort auf dem richtigen Handy — und bleiben still, solange ein Fahrer Ruhezeit hat."
+      },
+      "context": {
+        "title": "Kommunikation im Kontext",
+        "text": "Nachrichten liegen bei der Tour, um die es geht, neben ihren Stopps und Dokumenten — weniger Rückfragen, und alle sehen dasselbe. Archiviert, sobald die Tour abgeschlossen ist."
+      }
+    }
+  },
+  "apps": {
+    "eyebrow": "Drei Apps, ein Konto",
+    "title": "Am Schreibtisch, auf dem Handy, im Fahrerhaus.",
+    "soon": "Bald verfügbar",
+    "items": {
+      "desktop": {
+        "label": "Für Disponenten",
+        "title": "Web-Dashboard",
+        "text": "Planen Sie die Tour am Schreibtisch — Stopps, Zeitfenster, Lkw und Fahrer. Im Browser oder als Desktop-App für Windows und macOS, die sich selbst aktualisiert."
+      },
+      "manager": {
+        "label": "Für Manager unterwegs",
+        "title": "IS Manager",
+        "text": "Ihre Lkw, Touren und Fahrer in der Hosentasche — auf iOS und Android, mit Push-Benachrichtigung, sobald sich etwas ändert."
+      },
+      "driver": {
+        "label": "Für Fahrer",
+        "title": "IS Driver",
+        "text": "Die Tour landet direkt im Fahrerhaus: Adressen, Dokumente und der Tour-Chat. Anmeldung mit Telefonnummer und SMS-Code."
+      }
+    }
+  },
+  "store": {
+    "appStore": "Laden im",
+    "googlePlay": "Jetzt bei",
+    "windows": "Download für",
+    "macos": "Download für"
+  },
+  "who": {
+    "title": "Für wen",
+    "sub": "Gebaut für den Straßengüterverkehr — jede Flottengröße, national oder grenzüberschreitend.",
+    "items": {
+      "size": {
+        "title": "Flotten jeder Größe",
+        "text": "Von einer Handvoll Lkw bis zu Hunderten — Ordnung schaffen ohne schweres TMS. In wenigen Tagen startklar."
+      },
+      "intl": {
+        "title": "Internationale Transporteure",
+        "text": "Jede Tour, jeder CMR und jedes Dokument an einem Ort, über alle Grenzen hinweg. Nichts geht zwischen Ländern verloren."
+      },
+      "mixed": {
+        "title": "Subunternehmer & gemischte Flotten",
+        "text": "Eigene Lkw und beauftragte Fahrer auf einer Übersicht. Alle sehen dieselben Touren."
+      },
+      "lang": {
+        "title": "Mehrsprachige Teams",
+        "text": "Für Flotten, in denen Manager und Fahrer nicht dieselbe Sprache sprechen: Adressen, Zeitfenster und Dokumente stehen immer klar bei der Tour — weniger Erklären am Telefon."
+      }
+    }
+  },
+  "demo": {
+    "eyebrow": "Kontakt",
+    "integrations": "Offen für Integrationen — erzählen Sie uns von Ihren Systemen",
+    "title": "Gehören Sie zu den ersten Flotten auf <accent>IS Fleet.</accent>",
+    "text": "Erzählen Sie uns von Ihrer Flotte. Early-Access-Teams bekommen ein persönliches Onboarding, eine Demo auf ihren echten Routen und einen direkten Draht zu den Menschen, die das Produkt bauen."
+  },
+  "form": {
+    "tabsLabel": "Was möchten Sie tun?",
+    "tabTrial": "Kostenlos testen",
+    "tabDemo": "Demo buchen",
+    "soon": "Bald",
+    "name": "Ihr Name",
+    "namePlaceholder": "Max Mustermann",
+    "company": "Unternehmen",
+    "companyPlaceholder": "Name Ihres Unternehmens",
+    "email": "Geschäftliche E-Mail",
+    "emailPlaceholder": "sie@firma.de",
+    "trucks": "Anzahl der Lkw",
+    "message": "Was sollten wir wissen?",
+    "messagePlaceholder": "Erzählen Sie uns von Ihrer Flotte, Ihren Routen oder besonderen Anforderungen…",
+    "sending": "Wird gesendet…",
+    "submitTrial": "Kostenlos testen",
+    "submitDemo": "Demo buchen",
+    "trialHint": "Wir schicken Ihnen per E-Mail einen Link, um Ihr Passwort festzulegen. Keine Kreditkarte nötig.",
+    "done": {
+      "trialTitle": "Schauen Sie in Ihr Postfach",
+      "trialText": "Wir haben einen Link an <b>{{email}}</b> geschickt. Öffnen Sie ihn, um Ihr Passwort festzulegen und sich in Ihrem neuen Arbeitsbereich anzumelden — dann fügen Sie Ihre Lkw, Manager und Fahrer hinzu.",
+      "spam": "Nach ein paar Minuten keine E-Mail? Sehen Sie im Spam-Ordner nach.",
+      "demoTitle": "Danke — Ihre Anfrage ist angekommen",
+      "demoText": "Wir melden uns in Kürze unter <b>{{email}}</b>, um eine Demo auf Ihren eigenen Routen zu vereinbaren."
+    },
+    "errors": {
+      "exists": "„{{company}}“ ist bereits bei IS Fleet. Bitten Sie Ihren Teamleiter um eine Einladung oder schreiben Sie an {{email}}.",
+      "tooMany": "Zu viele Versuche. Bitte versuchen Sie es in einer Stunde erneut.",
+      "invalid": "Bitte prüfen Sie die Felder und versuchen Sie es erneut.",
+      "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an {{email}}."
+    }
+  },
+  "footer": {
+    "backToTop": "IS Fleet — nach oben",
+    "label": "Fußzeile",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen"
+  },
+  "mock": {
+    "online": "online",
+    "onlineCap": "Online",
+    "status": {
+      "ON_WAY": "Unterwegs",
+      "ON_SITE": "Vor Ort",
+      "LOADED": "Beladen"
+    },
+    "myTrucks": "Meine Lkw",
+    "chat": "Chat",
+    "trips": "Touren",
+    "trucks": "Lkw",
+    "drivers": "Fahrer",
+    "documents": "Dokumente",
+    "alarm": "Wecker",
+    "info": "Info",
+    "msg": {
+      "loading": "Beladung in Poznań heute 08:00–10:00, Rampe 4.",
+      "onSite": "Vor Ort, warte auf die Rampe.",
+      "loaded": "Beladen, 33 Paletten. Fahre jetzt in Poznań los.",
+      "slot": "Entlade-Slot auf Mi 06:00 verschoben — früher als geplant.",
+      "slotShort": "Entlade-Slot auf Mi 06:00 verschoben."
+    },
+    "desk": {
+      "aria": "Die IS Fleet Web-App: die Lkw eines Managers mit Tourstatus und die aktuelle Tour des gewählten Lkw — Route, Dokumente und der Tour-Chat mit dem Fahrer",
+      "driver": "Fahrer: {{name}} · online",
+      "newTrip": "Neue Tour",
+      "typeMessage": "Nachricht schreiben…"
+    },
+    "manager": {
+      "aria": "IS Manager auf iPhone und Android: der Startbildschirm mit Meine Lkw, Chat, Touren, Lkw und Fahrern",
+      "fleetTrips": "Ihre Flotte & Touren",
+      "role": "Managerin · online"
+    },
+    "driver": {
+      "aria": "IS Driver: das Seitenmenü über der aktuellen Tour — Tour, meine Touren, mein Lkw, Dokumente, Chat, Wecker und die zuständige Managerin",
+      "brand": "Driver",
+      "trip": "Tour",
+      "myTrips": "Meine Touren",
+      "myTruck": "Mein Lkw",
+      "noUnread": "Keine ungelesenen Nachrichten",
+      "manager": "Managerin",
+      "loadingStop": "1. Beladung · Mo 08:00–10:00",
+      "unloadingStop": "2. Entladung · Mi 06:00–09:00",
+      "tripChat": "Tour-Chat",
+      "message": "Nachricht…"
+    }
+  }
+}

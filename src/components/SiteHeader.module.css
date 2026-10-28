@@ -8,28 +8,45 @@
 .scrolled .nav { height: 56px; }
 .scrolled .nav img { height: 22px; }
 .links { display: none; gap: 32px; flex-grow: 1; font-size: 15px; font-weight: 500; }
-.links a { color: #475b6e; text-decoration: none; }
+.links a { color: #475b6e; text-decoration: none; white-space: nowrap; }
 .links a:hover { color: var(--text); }
 .spacer { flex-grow: 1; }
-.login { font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; padding: 12px 6px; }
+.lang { display: none; }
+.login { font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; padding: 12px 6px; white-space: nowrap; }
 .login:hover { color: var(--blue); }
-.cta { display: none; min-height: 44px; padding: 0 20px; font-size: 15px; }
+.cta { display: none; min-height: 44px; padding: 0 20px; font-size: 15px; white-space: nowrap; }
 .menuBtn { width: 44px; height: 44px; border: 1px solid var(--border-input); border-radius: 10px; background: var(--surface); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text); }
 .mobileMenu { display: none; border-top: 1px solid var(--border); background: var(--surface); }
 .open { display: block; }
-.mobileMenu nav { display: flex; flex-direction: column; padding: 8px var(--gutter) 20px; }
-.mobileMenu nav > a:not(.mobileCta) { padding: 14px 0; font-size: 17px; font-weight: 500; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--chip); }
+.mobileMenu > nav { display: flex; flex-direction: column; padding: 8px var(--gutter) 20px; }
+.mobileMenu > nav > a:not(.mobileCta) { padding: 14px 0; font-size: 17px; font-weight: 500; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--chip); }
 .mobileCta { margin-top: 16px; }
 
 @media (min-width: 900px) {
   .nav { height: 80px; gap: 40px; }
   .links { display: flex; }
+  /* Language picker sits right next to "Log in", closer than the nav's 40px gap */
+  .lang { display: block; margin-right: -30px; }
   .spacer, .menuBtn, .mobileMenu { display: none; }
   .cta { display: inline-flex; transition: min-height .25s ease; }
   .scrolled .nav { height: 60px; }
   .scrolled .nav img { height: 26px; }
   .scrolled .cta { min-height: 40px; }
 }
+/* Small laptops / tablets in landscape: longer languages (Lithuanian, Polish) need the room */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .nav { gap: 20px; }
+  .links { gap: 18px; font-size: 14px; }
+  .lang { margin-right: -14px; }
+  .login, .cta { font-size: 14px; }
+  .cta { padding: 0 14px; }
+}
+@media (min-width: 900px) and (max-width: 1023px) {
+  .nav { gap: 16px; }
+  .links { gap: 14px; font-size: 13.5px; }
+  .lang { margin-right: -10px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .header, .nav, .nav img, .cta { transition: none; }
 }
