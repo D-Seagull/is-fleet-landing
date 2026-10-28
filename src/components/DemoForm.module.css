@@ -139,6 +139,12 @@
   background-position: right 16px center;
   cursor: pointer;
 }
+/* The open list is drawn by the browser: with the field's see-through background it came up white,
+   with the white option text on it — give it the card's own dark navy */
+.field select option {
+  background: #0a1d33;
+  color: #fff;
+}
 .field textarea {
   padding: 14px 16px;
   resize: vertical;
