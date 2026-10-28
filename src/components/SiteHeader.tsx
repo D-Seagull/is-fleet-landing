@@ -43,7 +43,7 @@ export function SiteHeader() {
         </nav>
         <span className={styles.spacer} />
         <div className={styles.lang}>
-          <LanguageSwitcher variant="dropdown" />
+          <LanguageSwitcher />
         </div>
         <a className={styles.login} href={site.loginUrl}>{t("nav.login")}</a>
         <a className={cx(ui.btn, ui.primary, styles.cta)} href={PRIMARY_CTA.href}>{t(PRIMARY_CTA.labelKey)}</a>
@@ -63,7 +63,6 @@ export function SiteHeader() {
           {navLinks.map((l) => (
             <a key={l.href} href={l.href} onClick={closeMenu}>{t(l.key)}</a>
           ))}
-          <LanguageSwitcher variant="list" />
           <a className={cx(ui.btn, ui.primary, styles.mobileCta)} href={PRIMARY_CTA.href} onClick={closeMenu}>{t(PRIMARY_CTA.labelKey)}</a>
         </nav>
       </div>

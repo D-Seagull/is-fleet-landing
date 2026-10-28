@@ -12,7 +12,6 @@ import {
   CameraIcon,
   CheckCheckIcon,
   ChevronDownIcon,
-  ChevronRightIcon,
   CircleIcon,
   CopyIcon,
   FolderIcon,
@@ -94,8 +93,9 @@ export function ManagerPhone({ lng }: { lng: Locale }) {
             <b>{t("mock.myTrucks")}</b>
             <span>{t("mock.manager.fleetTrips")}</span>
           </span>
+          {/* No chevron here (the app has one): the mockup is narrower than a phone, and
+              "Мої вантажівки" / "Moje ciężarówki" need the room to stay on one line */}
           <span className={styles.hBadge}>2</span>
-          <ChevronRightIcon size={13} />
         </div>
         <div className={styles.hGrid}>
           {tiles.map(({ key, icon: TileIcon, color, ...tile }) => (

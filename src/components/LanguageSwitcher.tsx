@@ -45,11 +45,8 @@ function Options({ current, onChoose }: { current: Locale; onChoose?: () => void
   ));
 }
 
-/**
- * Header language picker. `dropdown`: the current flag + code, opening the list (desktop header);
- * `list`: every language laid out (mobile menu).
- */
-export function LanguageSwitcher({ variant }: { variant: "dropdown" | "list" }) {
+/** Header language picker: the current flag (+ code on wide screens), opening the list. */
+export function LanguageSwitcher() {
   const { t, i18n } = useTranslation();
   const current = i18n.language as Locale;
   const [open, setOpen] = useState(false);
@@ -70,14 +67,6 @@ export function LanguageSwitcher({ variant }: { variant: "dropdown" | "list" }) 
       document.removeEventListener("keydown", onKey);
     };
   }, [open]);
-
-  if (variant === "list") {
-    return (
-      <nav className={styles.list} aria-label={t("lang.label")}>
-        <Options current={current} />
-      </nav>
-    );
-  }
 
   return (
     <div className={styles.dropdown} ref={root}>

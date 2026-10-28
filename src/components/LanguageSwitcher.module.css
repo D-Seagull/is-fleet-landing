@@ -3,14 +3,14 @@
 .flag { display: block; }
 .badge { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 8px; font-weight: 800; letter-spacing: .02em; color: var(--text-3); background: var(--chip); }
 
-/* Desktop header: current flag + code, the list drops down under it */
+/* Header: current flag + code, the list drops down under it */
 .dropdown { position: relative; }
 .trigger { display: inline-flex; align-items: center; gap: 7px; height: 40px; padding: 0 10px; border: 1px solid transparent; border-radius: 10px; background: none; font: 600 14px var(--font-body); color: var(--text); cursor: pointer; }
 .trigger:hover, .trigger[aria-expanded="true"] { border-color: var(--border); background: var(--surface); }
 .trigger svg:last-child { color: var(--text-3); transition: transform .2s ease; }
 .trigger[aria-expanded="true"] svg:last-child { transform: rotate(180deg); }
 .code { min-width: 20px; }
-/* Narrow desktop header: the flag alone says which language is on */
+/* Narrow header (small laptop, tablet, phone): the flag alone says which language is on */
 @media (max-width: 1023px) {
   .code { display: none; }
 }
@@ -21,10 +21,6 @@
 .option:hover { background: var(--chip); }
 .current { font-weight: 600; color: var(--blue); background: var(--tint-blue); }
 .current:hover { background: var(--tint-blue); }
-
-/* Mobile menu: every language, two columns */
-.list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 14px 0 4px; border-bottom: 1px solid var(--chip); }
-.list .option { padding: 10px 8px; font-size: 16px; }
 
 @media (prefers-reduced-motion: reduce) {
   .trigger svg:last-child { transition: none; }

@@ -73,11 +73,13 @@
 .hLogo { height: 13px; width: auto; }
 .bug { color: #d24a3d; }
 .hBody { flex-grow: 1; display: flex; flex-direction: column; gap: 8px; padding: 4px 10px; background: #f8fafc; }
-.hHero { display: flex; align-items: center; gap: 8px; padding: 11px 10px; border-radius: 13px; border: 1px solid var(--p-border); background: rgb(107 91 209 / .1); color: var(--p-muted-fg); }
+.hHero { display: flex; align-items: center; gap: 6px; padding: 11px 6px 11px 8px; border-radius: 13px; border: 1px solid var(--p-border); background: rgb(107 91 209 / .1); color: var(--p-muted-fg); }
 .hHeroChip { width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #6b5bd1; color: #fff; }
 .hHeroText { flex-grow: 1; min-width: 0; display: flex; flex-direction: column; }
-.hHeroText b { color: var(--p-fg); font-size: 12px; font-weight: 700; }
+.hHeroText b { color: var(--p-fg); font-size: 12px; font-weight: 700; letter-spacing: -0.01em; }
 .hHeroText span { font-size: 8.5px; }
+/* One line each, as in the app — longer languages ("Mano vilkikai") must not wrap */
+.hHeroText b, .hHeroText span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .hBadge { min-width: 14px; height: 14px; padding: 0 4px; border-radius: 7px; background: #d24a3d; color: #fff; font-size: 8px; font-weight: 700; line-height: 14px; text-align: center; }
 .hGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
 .hTile { position: relative; display: flex; flex-direction: column; gap: 6px; min-height: 58px; padding: 9px; border-radius: 12px; border: 1px solid var(--p-border); background: #fff; }
