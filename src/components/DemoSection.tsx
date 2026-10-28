@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 import ui from "@/styles/ui.module.css";
 import { DemoForm } from "./DemoForm";
 import styles from "./DemoSection.module.css";
-import { MailIcon, PlugIcon } from "./icons";
+import { MailIcon, PhoneCallIcon, PlugIcon } from "./icons";
 
 // Final call to action over the night-road photo (public/bg-truck-map.webp).
 export function DemoSection({ lng }: { lng: Locale }) {
@@ -28,6 +28,10 @@ export function DemoSection({ lng }: { lng: Locale }) {
           <a href={`mailto:${site.contactEmail}`}>
             <MailIcon size={22} stroke="#5ab4ff" />
             {site.contactEmail}
+          </a>
+          <a href={`tel:${site.contactPhoneHref}`}>
+            <PhoneCallIcon size={22} stroke="#5ab4ff" />
+            {site.contactPhone}
           </a>
         </div>
       </div>

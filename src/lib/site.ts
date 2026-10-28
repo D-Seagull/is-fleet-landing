@@ -24,7 +24,10 @@ export const PRIMARY_CTA = TRIAL_OPEN
 
 export const site = {
   name: "IS Fleet",
-  contactEmail: "isfleet.eu@gmail.com",
+  contactEmail: "info@isfleet.eu",
+  /** Shown as written; `contactPhoneHref` is the same number for tel: links. */
+  contactPhone: "+48 794 467 804",
+  contactPhoneHref: "+48794467804",
   loginUrl: `${APP_URL}/login`,
   privacyUrl: `${APP_URL}/privacy`,
   termsUrl: `${APP_URL}/terms`,
