@@ -10,6 +10,16 @@
   border-bottom: 1px solid var(--border);
   overflow: hidden; /* the tilted window may poke past the viewport edge */
 }
+/* Desktop story (Motion.tsx): the hero sticks (at the top, or by its bottom edge when taller than
+   the window — Motion.tsx sets `top`) while the track scrolls on for 960px of
+   story (keep in sync with STORY_SCROLL there). Sticky, not a GSAP pin: the browser holds and
+   releases it in step with the scroll itself, while a JS pin lets go a frame late — the page used
+   to freeze and then jump right after the driver phone landed. Only with motion (the <head>
+   script adds .motion), so reduced-motion visitors just scroll. */
+@media (min-width: 900px) and (min-height: 560px) {
+  :global(html.motion) .track::after { content: ""; display: block; height: 960px; }
+  :global(html.motion) .bg { position: sticky; top: 0; }
+}
 .hero { padding: 40px 0 56px; display: grid; gap: 40px; align-items: center; }
 .copy { position: relative; isolation: isolate; container-type: inline-size; display: flex; flex-direction: column; gap: 22px; }
 /* Faint frosted patch behind the headline and slogan: softens the route map under the text (its
@@ -36,6 +46,7 @@
 .sub { font-size: clamp(17px, 2vw, 21px); color: var(--text-2); max-width: 540px; }
 .subLead { color: var(--text); font-weight: 600; }
 .ctas { display: flex; flex-direction: column; gap: 10px; }
+.soon { align-self: center; font-size: 14px; font-weight: 600; color: var(--text-2); }
 
 /* Story steps under the buttons — lit one by one as the stage scrolls (desktop only) */
 .steps { display: none; list-style: none; margin: 4px 0 0; padding: 0; flex-direction: column; gap: 8px; max-width: 460px; }
@@ -57,16 +68,18 @@
   .phones { zoom: 1; gap: 40px; }
 }
 @media (min-width: 900px) {
-  .tilt { transform: perspective(1800px) rotateY(-9deg) rotateX(3deg) rotateZ(-1deg); transform-origin: 70% 50%; }
+  /* The tilt brings the right edge closer, so it grows past its box: keep it clear of the screen edge */
+  .tilt { transform: perspective(1800px) rotateY(-9deg) rotateX(3deg) rotateZ(-1deg); transform-origin: 70% 50%; margin-right: 14px; }
   /* Pinned under the 80px header while the story scrolls, so it has to fit one screen */
-  .hero { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 48px; padding: 40px 0 48px; }
+  .hero { grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr); gap: 48px; padding: 40px 0 48px; }
   .steps { display: flex; }
   .stage { padding-bottom: 200px; }
   .phones { position: absolute; left: -44px; right: 8px; bottom: 0; margin: 0; justify-content: space-between; align-items: flex-end; zoom: .82; }
   .phones > :last-child { margin-bottom: 36px; }
 }
-@media (min-width: 1200px) {
-  /* Let the app window run a little into the right gutter so it reads bigger */
+@media (min-width: 1440px) {
+  /* Let the app window run a little into the right gutter so it reads bigger — only once the
+     page is wider than the content, otherwise the window runs off the screen edge */
   .tilt { margin-right: -32px; }
   .phones { right: -16px; }
 }

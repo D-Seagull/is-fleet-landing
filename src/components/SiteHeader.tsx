@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { cx } from "@/lib/cx";
-import { navLinks, site } from "@/lib/site";
+import { PRIMARY_CTA, navLinks, site } from "@/lib/site";
 import ui from "@/styles/ui.module.css";
 import { CloseIcon, MenuIcon } from "./icons";
 import { Logo } from "./Logo";
@@ -40,7 +40,7 @@ export function SiteHeader() {
         </nav>
         <span className={styles.spacer} />
         <a className={styles.login} href={site.loginUrl}>Log in</a>
-        <a className={cx(ui.btn, ui.primary, styles.cta)} href="#trial">Start Free Trial</a>
+        <a className={cx(ui.btn, ui.primary, styles.cta)} href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</a>
         <button
           className={styles.menuBtn}
           type="button"
@@ -57,7 +57,7 @@ export function SiteHeader() {
           {navLinks.map((l) => (
             <a key={l.href} href={l.href} onClick={closeMenu}>{l.label}</a>
           ))}
-          <a className={cx(ui.btn, ui.primary, styles.mobileCta)} href="#trial" onClick={closeMenu}>Start Free Trial</a>
+          <a className={cx(ui.btn, ui.primary, styles.mobileCta)} href={PRIMARY_CTA.href} onClick={closeMenu}>{PRIMARY_CTA.label}</a>
         </nav>
       </div>
     </header>

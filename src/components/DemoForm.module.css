@@ -57,8 +57,24 @@
   font: 600 15px var(--font-body);
   cursor: pointer;
 }
-.tab:hover {
+.tab:hover:not(:disabled) {
   color: #fff;
+}
+.tab:disabled {
+  color: rgba(184, 202, 219, 0.55);
+  cursor: default;
+}
+.soonBadge {
+  margin-left: 8px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #b8cadb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 1px;
 }
 .tabActive {
   background: rgba(58, 168, 255, 0.18);

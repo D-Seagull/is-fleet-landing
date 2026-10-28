@@ -1,4 +1,5 @@
 import { cx } from "@/lib/cx";
+import { PRIMARY_CTA, TRIAL_OPEN } from "@/lib/site";
 import ui from "@/styles/ui.module.css";
 import { DashboardMockup } from "./DashboardMockup";
 import styles from "./Hero.module.css";
@@ -16,49 +17,55 @@ const steps = [
 
 export function Hero() {
   return (
-    <div className={styles.bg} id="top" data-story>
-      <section className={cx(ui.wrap, styles.hero)}>
-        <div className={styles.copy}>
-          <span className={styles.badge} data-hero-item>
-            <span className={styles.badgeDot}><span className={styles.badgePulse} data-pulse /></span>Early access — join the first fleets
-          </span>
-          <h1 className={styles.title} data-hero-item>
-            From chaos <br />
-            to <span className={styles.accent}>control</span>
-          </h1>
-          <p className={styles.sub} data-hero-item>
-            <strong className={styles.subLead}>One system for the whole fleet.</strong> Trips, trucks, CMRs and the whole
-            team — dispatchers, managers and drivers — on the same page.
-          </p>
-          <div className={styles.ctas} data-hero-item>
-            <a className={cx(ui.btn, ui.primary, ui.lg)} href="#trial">Start Free Trial</a>
-            <a className={cx(ui.btn, ui.ghost, ui.lg)} href="#demo">Book a Demo</a>
+    <div className={styles.track} data-story>
+      <div className={styles.bg} id="top">
+        <section className={cx(ui.wrap, styles.hero)}>
+          <div className={styles.copy}>
+            <span className={styles.badge} data-hero-item>
+              <span className={styles.badgeDot}><span className={styles.badgePulse} data-pulse /></span>Early access — join the first fleets
+            </span>
+            <h1 className={styles.title} data-hero-item>
+              From chaos <br />
+              to <span className={styles.accent}>control</span>
+            </h1>
+            <p className={styles.sub} data-hero-item>
+              <strong className={styles.subLead}>One system for the whole fleet.</strong> Trips, trucks, CMRs and the whole
+              team — dispatchers, managers and drivers — on the same page.
+            </p>
+            <div className={styles.ctas} data-hero-item>
+              <a className={cx(ui.btn, ui.primary, ui.lg)} href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</a>
+              {TRIAL_OPEN ? (
+                <a className={cx(ui.btn, ui.ghost, ui.lg)} href="#demo">Book a Demo</a>
+              ) : (
+                <span className={styles.soon}>Free trial — coming soon</span>
+              )}
+            </div>
+            <ol className={styles.steps} data-hero-item>
+              {steps.map((s, i) => (
+                <li key={s.title} className={styles.step} data-story-step>
+                  <span className={styles.stepNum}>{String(i + 1).padStart(2, "0")}</span>
+                  <span>
+                    <b>{s.title}</b> {s.text}
+                  </span>
+                </li>
+              ))}
+            </ol>
           </div>
-          <ol className={styles.steps} data-hero-item>
-            {steps.map((s, i) => (
-              <li key={s.title} className={styles.step} data-story-step>
-                <span className={styles.stepNum}>{String(i + 1).padStart(2, "0")}</span>
-                <span>
-                  <b>{s.title}</b> {s.text}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        <div className={styles.stage}>
-          {/* Tilt lives on a wrapper: GSAP animates the mockup's own transform */}
-          <div className={styles.tilt}>
-            <div data-story-desk>
-              <DashboardMockup intro />
+  
+          <div className={styles.stage}>
+            {/* Tilt lives on a wrapper: GSAP animates the mockup's own transform */}
+            <div className={styles.tilt}>
+              <div data-story-desk>
+                <DashboardMockup intro />
+              </div>
+            </div>
+            <div className={styles.phones}>
+              <ManagerPhone />
+              <DriverPhone />
             </div>
           </div>
-          <div className={styles.phones}>
-            <ManagerPhone />
-            <DriverPhone />
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import { cx } from "@/lib/cx";
-import { API_URL, site } from "@/lib/site";
+import { API_URL, TRIAL_OPEN, site } from "@/lib/site";
 import styles from "./DemoForm.module.css";
 import { ArrowRightIcon, TruckIcon } from "./icons";
 
@@ -14,7 +14,7 @@ type Status =
   | { kind: "error"; message: string };
 
 const modeFromHash = (): Mode | null =>
-  window.location.hash === "#trial" ? "trial" : window.location.hash === "#demo" ? "demo" : null;
+  window.location.hash === "#trial" && TRIAL_OPEN ? "trial" : window.location.hash === "#demo" ? "demo" : null;
 
 /**
  * One form, two intents. "Start free trial" creates the company on the backend and mails the
@@ -22,7 +22,7 @@ const modeFromHash = (): Mode | null =>
  * The page's CTAs pick the tab through the URL hash (#trial / #demo).
  */
 export function DemoForm() {
-  const [mode, setMode] = useState<Mode>("trial");
+  const [mode, setMode] = useState<Mode>(TRIAL_OPEN ? "trial" : "demo");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
   useEffect(() => {
@@ -115,6 +115,7 @@ export function DemoForm() {
             type="button"
             role="radio"
             aria-checked={mode === m}
+            disabled={m === "trial" && !TRIAL_OPEN}
             className={cx(styles.tab, mode === m && styles.tabActive)}
             onClick={() => {
               setMode(m);
@@ -122,6 +123,7 @@ export function DemoForm() {
             }}
           >
             {m === "trial" ? "Start free trial" : "Book a demo"}
+            {m === "trial" && !TRIAL_OPEN && <span className={styles.soonBadge}>Soon</span>}
           </button>
         ))}
       </div>

@@ -12,7 +12,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  *  - [data-pulse]   — endless ring pulse (the "Early access" badge dot)
  *  - [data-reveal]  — element fades up when it scrolls into view
  *  - [data-stagger] — its children fade up one after another
- *  - [data-story]   — the hero: pinned, scroll-scrubbed walk through the three apps on desktop,
+ *  - [data-story]   — the hero: sticky, scroll-scrubbed walk through the three apps on desktop,
  *                     a plain fade-up of the phones on smaller screens
  * Nothing runs for visitors who prefer reduced motion (the <head> script doesn't add `motion` either).
  */
@@ -48,23 +48,35 @@ export function Motion() {
       });
     });
 
-    // Hero story, desktop: the hero stays pinned for a short stretch and the scroll position drives
+    // Hero story, desktop: the hero stays put for a short stretch and the scroll position drives
     // the story (scrub) — the web app first, then IS Manager slides in, then IS Driver; scrolling back
     // runs it backwards. Kept short so a single swipe gets through it. Non-current steps are dimmed.
-    // Very short windows (< 560px) don't pin: the hero would not fit, so it just scrolls.
+    // The hold itself is CSS (position: sticky in Hero.module.css, same media query); this only
+    // scrubs the timeline over that stretch. Very short windows (< 560px) don't hold: the hero
+    // would not fit, so it just scrolls.
     mm.add("(min-width: 900px) and (min-height: 560px) and (prefers-reduced-motion: no-preference)", () => {
       const story = document.querySelector<HTMLElement>("[data-story]");
       if (!story) return;
       const steps = gsap.utils.toArray<HTMLElement>("[data-story-step]", story);
       const phones = gsap.utils.toArray<HTMLElement>("[data-story-phone]", story);
       const desk = story.querySelector("[data-story-desk]");
+      const hero = story.firstElementChild as HTMLElement;
+      // Where the sticky hero rests: at the top, or — when it is taller than the window (a small
+      // laptop, browser zoom) — with its bottom edge on screen, so the phones that slide in are seen.
+      const stickAt = () => {
+        const top = Math.min(0, window.innerHeight - hero.offsetHeight);
+        hero.style.top = `${top}px`;
+        return top;
+      };
       const dim = 0.3;
       // Every change in the story takes the same share of the scroll and moves at a constant
       // speed (linear ease), so the manager phone and the driver phone arrive at the same pace.
       const STEP = 1;
       // Rest after the last device lands, so the scrub has caught up and the story is fully still
-      // before the pin lets go — without it the driver phone was still moving as the page took off.
+      // before the page moves on — without it the driver phone was still moving as the page took off.
       const HOLD = 0.4;
+      // 2 steps × 400px + a 160px rest at the end (HOLD) — the sticky track in Hero.module.css.
+      const STORY_SCROLL = 960;
       const slideIn = (el: Element, at: string) =>
         tl.fromTo(el, { y: 160, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: STEP }, at);
 
@@ -72,17 +84,9 @@ export function Motion() {
         defaults: { ease: "none" },
         scrollTrigger: {
           trigger: story,
-          // The hero starts at the very top (the fixed header floats over its padding-top),
-          // so the pin engages at scroll 0 with nothing to jump.
-          start: "top top",
-          // 2 steps × 400px + a 160px rest at the end (see HOLD) — same 400px per step as before.
-          end: "+=960",
-          pin: true,
-          // pinSpacing must be explicit: GSAP turns it off when the pinned element sits in a flex parent.
-          pinSpacing: true,
-          // Engage the pin a frame early — otherwise the first wheel tick scrolls the hero up and it
-          // snaps back when position: fixed kicks in (a visible jerk right before the story starts).
-          anticipatePin: 1,
+          // The story starts as the hero comes to rest (scroll 0 when it fits the window).
+          start: () => `top ${stickAt()}px`,
+          end: `+=${STORY_SCROLL}`,
           scrub: 0.6,
           // Tell the header where the story ends: it stays full-size while the story plays and
           // only shrinks once the page scrolls on past it (see SiteHeader).
@@ -102,6 +106,7 @@ export function Motion() {
       tl.to({}, { duration: HOLD });
 
       return () => {
+        hero.style.top = "";
         delete document.documentElement.dataset.storyEnd;
       };
     });

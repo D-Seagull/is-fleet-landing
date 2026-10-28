@@ -3,6 +3,13 @@
 export const APP_URL = "https://app.isfleet.eu";
 /** Backend the public forms post to (POST /public/trial-signup, /public/demo-request). */
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://api.isfleet.eu";
+/** Self-serve trial is closed while the app is in testing: the CTAs book a demo and the form
+ *  shows the trial as "soon". Flip to true to open sign-ups (the backend side is live). */
+export const TRIAL_OPEN = false;
+/** Where the main call to action points. */
+export const PRIMARY_CTA = TRIAL_OPEN
+  ? { href: "#trial", label: "Start Free Trial" }
+  : { href: "#demo", label: "Book a Demo" };
 
 export const site = {
   name: "IS Fleet",

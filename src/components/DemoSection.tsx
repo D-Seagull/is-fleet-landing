@@ -8,7 +8,7 @@ import { MailIcon, PlugIcon } from "./icons";
 export function DemoSection() {
   return (
     <section className={styles.section} id="demo" data-reveal>
-      {/* #trial lands here too and opens the form on the trial tab (see DemoForm) */}
+      {/* #trial lands here too and opens the trial tab when TRIAL_OPEN (see DemoForm) */}
       <span id="trial" className={styles.anchor} />
       <div className={styles.copy}>
         <span className={styles.eyebrow}>Get in touch</span>
