@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- static SVG wordmark inside a decorative mockup */
+import { clock } from "@/i18n/clock";
+import type { Locale } from "@/i18n/config";
+import { getT } from "@/i18n/server";
 import { cx } from "@/lib/cx";
 import styles from "./DashboardMockup.module.css";
 import {
@@ -27,10 +30,9 @@ import {
 } from "./icons";
 
 // A static copy of the web app's "My Trucks" screen (is-fleet-frontend /my-trucks): truck list on the
-// left, the selected truck's current trip and its trip chat on the right. Names and truck numbers are made up.
+// left, the selected truck's current trip and its trip chat on the right. Names and truck numbers are made up
+// and stay the same in every language; the app's own labels and the chat are translated.
 type Status = "ON_WAY" | "ON_SITE" | "LOADED";
-
-const statusLabel: Record<Status, string> = { ON_WAY: "On Way", ON_SITE: "On Site", LOADED: "Loaded" };
 
 // Driver presence dot, as in the app: green = online, amber = away.
 const trucks: Array<{ unit: string; driver: string; status: Status; online: boolean; active?: boolean }> = [
@@ -57,14 +59,15 @@ function Reaction({ emoji }: { emoji?: string }) {
 }
 
 /** `intro`: tag the window and its rows for the hero's load-in animation (Motion.tsx). */
-export function DashboardMockup({ intro = false }: { intro?: boolean }) {
+export function DashboardMockup({ lng, intro = false }: { lng: Locale; intro?: boolean }) {
+  const t = getT(lng);
   const item = intro ? { "data-mock-item": "" } : {};
   return (
     <div
       className={styles.frame}
       data-hero-dash={intro ? "" : undefined}
       role="img"
-      aria-label="The IS Fleet web app: a manager's trucks with their trip status, and the selected truck's current trip — route, documents and the trip conversation with the driver"
+      aria-label={t("mock.desk.aria")}
     >
       <div className={styles.app} aria-hidden="true">
         <header className={styles.topbar}>
@@ -89,17 +92,17 @@ export function DashboardMockup({ intro = false }: { intro?: boolean }) {
           <section className={styles.list}>
             <div className={styles.listHead}>
               <TruckIcon size={13} />
-              <b>My Trucks</b>
+              <b>{t("mock.myTrucks")}</b>
               <span className={styles.grow} />
               <MegaphoneIcon size={13} />
             </div>
-            {trucks.map((t) => (
-              <div key={t.unit} className={cx(styles.truck, t.active && styles.truckActive)} {...item}>
+            {trucks.map((truck) => (
+              <div key={truck.unit} className={cx(styles.truck, truck.active && styles.truckActive)} {...item}>
                 <div className={styles.truckTop}>
-                  <span className={styles.unit}>{t.unit}</span>
-                  <span className={cx(styles.pill, styles[t.status])}>{statusLabel[t.status]}</span>
+                  <span className={styles.unit}>{truck.unit}</span>
+                  <span className={cx(styles.pill, styles[truck.status])}>{t(`mock.status.${truck.status}`)}</span>
                 </div>
-                <span className={styles.driver}>{t.driver}<i className={t.online ? styles.dotOnline : styles.dotAway} /></span>
+                <span className={styles.driver}>{truck.driver}<i className={truck.online ? styles.dotOnline : styles.dotAway} /></span>
               </div>
             ))}
           </section>
@@ -107,18 +110,18 @@ export function DashboardMockup({ intro = false }: { intro?: boolean }) {
           <section className={styles.main}>
             <div className={styles.mainHead}>
               <b className={styles.truckTitle}>Truck 104</b>
-              <span className={styles.lastSeen}><i className={styles.dotOnline} />Driver: Tomasz Nowak · online</span>
+              <span className={styles.lastSeen}><i className={styles.dotOnline} />{t("mock.desk.driver", { name: "Tomasz Nowak" })}</span>
             </div>
             <div className={styles.tabsRow}>
               <span className={styles.tabs}>
-                <span className={styles.tabActive}>Chat</span>
-                <span>Trips</span>
-                <span>Documents</span>
-                <span className={styles.tabExtra}>Alarm</span>
-                <span className={styles.tabExtra}>Info</span>
+                <span className={styles.tabActive}>{t("mock.chat")}</span>
+                <span>{t("mock.trips")}</span>
+                <span>{t("mock.documents")}</span>
+                <span className={styles.tabExtra}>{t("mock.alarm")}</span>
+                <span className={styles.tabExtra}>{t("mock.info")}</span>
               </span>
               <span className={styles.grow} />
-              <span className={styles.newTrip}><PlusIcon size={12} />New Trip</span>
+              <span className={styles.newTrip}><PlusIcon size={12} />{t("mock.desk.newTrip")}</span>
             </div>
 
             <div className={styles.tripBar}>
@@ -126,7 +129,7 @@ export function DashboardMockup({ intro = false }: { intro?: boolean }) {
               <span className={styles.tripMeta}>· #FT26093549</span>
               <span className={styles.docCount}><FolderIcon size={11} />16</span>
               <span className={styles.grow} />
-              <span className={cx(styles.pill, styles.LOADED)}>Loaded<ChevronDownIcon size={10} /></span>
+              <span className={cx(styles.pill, styles.LOADED)}>{t("mock.status.LOADED")}<ChevronDownIcon size={10} /></span>
               <span className={styles.tripActions}>
                 <SwapIcon size={12} />
                 <PencilIcon size={12} />
@@ -138,29 +141,29 @@ export function DashboardMockup({ intro = false }: { intro?: boolean }) {
               <div className={styles.outRow} {...item}>
                 <span className={styles.line}>
                   <Reaction emoji="👍" />
-                  <span className={styles.bubbleOut}>Loading in Poznań today 08:00–10:00, dock 4.</span>
+                  <span className={styles.bubbleOut}>{t("mock.msg.loading")}</span>
                 </span>
-                <span className={styles.time}>07:12 AM <CheckCheckIcon size={11} className={styles.read} /></span>
+                <span className={styles.time}>{clock(lng, "07:12")} <CheckCheckIcon size={11} className={styles.read} /></span>
               </div>
               <div className={styles.inRow} {...item}>
                 <span className={styles.avatar}>TN</span>
                 <div className={styles.inCol}>
                   <span className={styles.author}>Tomasz Nowak</span>
                   <span className={styles.line}>
-                    <span className={styles.bubbleIn}>On site, waiting for the dock.</span>
+                    <span className={styles.bubbleIn}>{t("mock.msg.onSite")}</span>
                     <Reaction emoji="😢" />
                   </span>
-                  <span className={styles.time}>09:41 AM</span>
+                  <span className={styles.time}>{clock(lng, "09:41")}</span>
                 </div>
               </div>
               <div className={styles.inRow} {...item}>
                 <span className={styles.avatar}>TN</span>
                 <div className={styles.inCol}>
                   <span className={styles.line}>
-                    <span className={styles.bubbleIn}>Loaded, 33 pallets. Leaving Poznań now.</span>
+                    <span className={styles.bubbleIn}>{t("mock.msg.loaded")}</span>
                     <Reaction emoji="👍" />
                   </span>
-                  <span className={styles.time}>03:55 PM</span>
+                  <span className={styles.time}>{clock(lng, "15:55")}</span>
                 </div>
               </div>
               <div className={styles.inRow} {...item}>
@@ -170,22 +173,22 @@ export function DashboardMockup({ intro = false }: { intro?: boolean }) {
                     <span className={cx(styles.bubbleIn, styles.file)}><FileIcon size={13} />CMR_signed.jpg</span>
                     <Reaction />
                   </span>
-                  <span className={styles.time}>03:56 PM</span>
+                  <span className={styles.time}>{clock(lng, "15:56")}</span>
                 </div>
               </div>
               <div className={styles.outRow} {...item}>
                 <span className={styles.line}>
                   <Reaction emoji="😮" />
-                  <span className={styles.bubbleOut}>Unloading slot moved to Wed 06:00 — earlier than planned.</span>
+                  <span className={styles.bubbleOut}>{t("mock.msg.slot")}</span>
                 </span>
-                <span className={styles.time}>04:03 PM <CheckCheckIcon size={11} className={styles.read} /></span>
+                <span className={styles.time}>{clock(lng, "16:03")} <CheckCheckIcon size={11} className={styles.read} /></span>
               </div>
             </div>
 
             <div className={styles.composer}>
               <PaperclipIcon size={13} />
               <SmileIcon size={13} />
-              <span className={styles.input}>Type a message…</span>
+              <span className={styles.input}>{t("mock.desk.typeMessage")}</span>
               <span className={styles.send}><SendIcon size={12} /></span>
             </div>
           </section>

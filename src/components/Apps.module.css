@@ -38,11 +38,13 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--on-dark-label);
 }
 .soon {
   font-size: 11px;
   letter-spacing: 0;
+  text-transform: none;
   color: var(--navy);
   background: var(--cyan-soft);
   padding: 2px 8px;

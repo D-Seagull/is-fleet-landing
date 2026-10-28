@@ -1,3 +1,5 @@
+import type { Locale } from "@/i18n/config";
+import { getT } from "@/i18n/server";
 import { cx } from "@/lib/cx";
 import { downloads } from "@/lib/site";
 import ui from "@/styles/ui.module.css";
@@ -8,51 +10,34 @@ import { StoreButton } from "./StoreButton";
 // The devices themselves are shown in the hero's scroll story; here the three apps are summed up,
 // each with its download links.
 const apps = [
-  {
-    id: "desktop" as const,
-    icon: MonitorIcon,
-    label: "FOR DISPATCHERS",
-    title: "Web dashboard",
-    text: "Plan the trip at the desk — stops, time windows, truck and driver. In the browser or as a desktop app for Windows and macOS that updates itself.",
-  },
-  {
-    id: "manager" as const,
-    icon: PhoneIcon,
-    label: "FOR MANAGERS ON THE MOVE",
-    title: "IS Manager",
-    text: "Your trucks, trips and drivers in your pocket on iOS and Android, with a push when something changes.",
-  },
-  {
-    id: "driver" as const,
-    icon: TruckIcon,
-    label: "FOR DRIVERS",
-    title: "IS Driver",
-    text: "The trip lands in the cab: addresses, documents and the trip chat. Sign in with a phone number and an SMS code.",
-  },
-];
+  { id: "desktop", icon: MonitorIcon },
+  { id: "manager", icon: PhoneIcon },
+  { id: "driver", icon: TruckIcon },
+] as const;
 
-export function Apps() {
+export function Apps({ lng }: { lng: Locale }) {
+  const t = getT(lng);
   return (
     <section className={styles.section} id="apps">
       {/* Old #download links keep working */}
       <span id="download" className={styles.anchor} />
       <div className={styles.head} data-reveal>
-        <span className={cx(ui.eyebrow, ui.eyebrowOnDark)}>Three apps, one account</span>
-        <h2 className={cx(ui.display, ui.h2)}>At the desk, on the phone, in the cab.</h2>
+        <span className={cx(ui.eyebrow, ui.eyebrowOnDark)}>{t("apps.eyebrow")}</span>
+        <h2 className={cx(ui.display, ui.h2)}>{t("apps.title")}</h2>
       </div>
       <div className={styles.grid} data-stagger>
-        {apps.map(({ id, icon: AppIcon, label, title, text }) => (
-          <article className={styles.card} key={title}>
+        {apps.map(({ id, icon: AppIcon }) => (
+          <article className={styles.card} key={id}>
             <AppIcon size={32} strokeWidth={1.8} stroke="#7fd8f5" />
             <span className={styles.label}>
-              {label}
-              {downloads[id].every((l) => !l.url) && <span className={styles.soon}>Coming soon</span>}
+              {t(`apps.items.${id}.label`)}
+              {downloads[id].every((l) => !l.url) && <span className={styles.soon}>{t("apps.soon")}</span>}
             </span>
-            <h3>{title}</h3>
-            <p>{text}</p>
+            <h3>{t(`apps.items.${id}.title`)}</h3>
+            <p>{t(`apps.items.${id}.text`)}</p>
             <div className={styles.stores}>
               {downloads[id].map((l) => (
-                <StoreButton key={l.store} store={l.store} url={l.url} />
+                <StoreButton key={l.store} store={l.store} url={l.url} small={t(`store.${l.store}`)} />
               ))}
             </div>
           </article>

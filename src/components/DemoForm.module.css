@@ -49,7 +49,15 @@
   border: 1px solid rgba(184, 202, 219, 0.18);
 }
 .tab {
+  /* Longer labels ("Išbandyti nemokamai") wrap, the Soon badge drops under them on phones */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 8px;
   min-height: 40px;
+  padding: 6px 8px;
+  line-height: 1.25;
   border: 0;
   border-radius: 9px;
   background: transparent;
@@ -65,7 +73,6 @@
   cursor: default;
 }
 .soonBadge {
-  margin-left: 8px;
   padding: 2px 7px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
@@ -74,7 +81,6 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  vertical-align: 1px;
 }
 .tabActive {
   background: rgba(58, 168, 255, 0.18);

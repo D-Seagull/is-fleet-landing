@@ -1,0 +1,239 @@
+{
+  "meta": {
+    "title": "IS Fleet — Nuo chaoso iki kontrolės. Viena sistema visam autoparkui",
+    "description": "Viena sistema visam autoparkui: reisai, vilkikai, CMR ir visa komanda — dispečeriai, vadybininkai ir vairuotojai — mato tą patį."
+  },
+  "cta": {
+    "trial": "Išbandyti nemokamai",
+    "demo": "Užsakyti demonstraciją"
+  },
+  "nav": {
+    "compare": "Kodėl IS Fleet",
+    "features": "Galimybės",
+    "apps": "Programėlės",
+    "who": "Kam skirta",
+    "main": "Pagrindinis meniu",
+    "mobile": "Mobilusis meniu",
+    "login": "Prisijungti",
+    "home": "IS Fleet — į pradžią",
+    "openMenu": "Atverti meniu",
+    "closeMenu": "Uždaryti meniu"
+  },
+  "lang": {
+    "label": "Kalba",
+    "suggest": "Šis puslapis yra ir lietuvių kalba.",
+    "switch": "Rodyti lietuviškai",
+    "dismiss": "Ne, ačiū"
+  },
+  "hero": {
+    "badge": "Ankstyvoji prieiga — prisijunkite tarp pirmųjų",
+    "title": "Nuo chaoso<br/>iki <accent>kontrolės</accent>",
+    "sub": "<lead>Viena sistema visam autoparkui.</lead> Reisai, vilkikai, CMR ir visa komanda — dispečeriai, vadybininkai ir vairuotojai — mato tą patį.",
+    "trialSoon": "Nemokamas bandomasis laikotarpis — jau netrukus",
+    "steps": {
+      "desk": { "title": "Žiniatinklio skydelis", "text": "Dispečeris planuoja reisą prie stalo." },
+      "manager": { "title": "IS Manager", "text": "Vadybininkas jį seka telefone." },
+      "driver": { "title": "IS Driver", "text": "Vairuotojas jį gauna kabinoje." }
+    }
+  },
+  "compare": {
+    "eyebrow": "Kodėl IS Fleet",
+    "title": "Jūsų dispečeris neturėtų būti vienintelė jūsų sistema.",
+    "oldTitle": "Kaip buvo",
+    "newTitle": "Su IS Fleet",
+    "rows": {
+      "trips": {
+        "old": "Reisai išmėtyti po pokalbius, lenteles ir sąsiuvinius.",
+        "new": "Kiekvienas reisas vienoje sistemoje — sustojimai, laiko langai, vilkikas ir vairuotojas."
+      },
+      "cmr": {
+        "old": "CMR nuotraukos paskęsta pokalbiuose — jų niekada nėra, kai klausia buhalterija.",
+        "new": "CMR prisegti prie reiso — randami per kelias sekundes, kai klausia buhalterija."
+      },
+      "where": {
+        "old": "„Kur vilkikas?“ — dar vienas skambutis.",
+        "new": "Matote, kuriame etape kiekvienas reisas, — nekeldami ragelio."
+      },
+      "swap": {
+        "old": "Pakeisti vairuotoją ar transporto priemonę — vėl viską persiųsti rankiniu būdu.",
+        "new": "Vilkiką ar vairuotoją pakeičiate vienu paspaudimu — istorija ir failai keliauja kartu."
+      },
+      "head": {
+        "old": "Visas jūsų darbas laikosi vieno dispečerio galvoje.",
+        "new": "Kiekvienas reisas yra sistemoje, o ne kieno nors galvoje."
+      }
+    }
+  },
+  "features": {
+    "title": "Viskas, ko reikia reisui, vienoje vietoje.",
+    "sub": "Sukurta aplink reisą — vienetą, kuriuo iš tikrųjų gyvena jūsų verslas. Mažiau klausinėjimo, mažiau skambučių, niekas nepasimeta tarp programėlių.",
+    "items": {
+      "trips": {
+        "title": "Reisų valdymas",
+        "text": "Pakrovimas, iškrovimas ir tarpiniai sustojimai su datomis ir laiko langais. Matote, kaip reisas eina nuo suplanuoto iki pristatyto, — nereikia nuolat teirautis."
+      },
+      "fleet": {
+        "title": "Visas autoparkas akyse",
+        "text": "Kiekvienas vilkikas, jo reisas ir kas vairuoja — vienu žvilgsniu, be jokio skambučio. Vairuotojai pažymėti kaip prisijungę, užimti arba ilsisi."
+      },
+      "docs": {
+        "title": "Dokumentai prie kiekvieno reiso",
+        "text": "CMR, važtaraščiai ir nuotraukos saugomi prie reiso, kuriam priklauso. Randami per kelias sekundes pagal reiso numerį, datą ar pašto kodą — kai klausia buhalterija."
+      },
+      "swap": {
+        "title": "Vairuotojo ar vilkiko keitimas vienu paspaudimu",
+        "text": "Perkelkite reisą kitam vilkikui ar vairuotojui. Istorija ir dokumentai keliauja kartu — nieko nereikia persiųsti ar suvesti iš naujo."
+      },
+      "notify": {
+        "title": "Pranešimai realiuoju laiku",
+        "text": "Nauji reisai, pakeitimai ir dokumentai pasiekia reikiamą telefoną tą pačią akimirką — ir netrukdo vairuotojui, kol jis ilsisi."
+      },
+      "context": {
+        "title": "Bendravimas reiso kontekste",
+        "text": "Žinutės lieka prie reiso, kurio jos liečia, šalia sustojimų ir dokumentų, — mažiau perklausinėjimų, ir visi mato tą patį. Uždarius reisą, perkeliamos į archyvą."
+      }
+    }
+  },
+  "apps": {
+    "eyebrow": "Trys programėlės, viena paskyra",
+    "title": "Prie stalo, telefone, kabinoje.",
+    "soon": "Jau netrukus",
+    "items": {
+      "desktop": {
+        "label": "Dispečeriams",
+        "title": "Žiniatinklio skydelis",
+        "text": "Planuokite reisą prie stalo — sustojimai, laiko langai, vilkikas ir vairuotojas. Naršyklėje arba kaip pati atsinaujinanti programa, skirta Windows ir macOS."
+      },
+      "manager": {
+        "label": "Vadybininkams kelyje",
+        "title": "IS Manager",
+        "text": "Jūsų vilkikai, reisai ir vairuotojai kišenėje — iOS ir Android, su „push“ pranešimu, kai kas nors pasikeičia."
+      },
+      "driver": {
+        "label": "Vairuotojams",
+        "title": "IS Driver",
+        "text": "Reisas atkeliauja tiesiai į kabiną: adresai, dokumentai ir reiso pokalbis. Prisijungimas telefono numeriu ir SMS kodu."
+      }
+    }
+  },
+  "store": {
+    "appStore": "Atsisiųskite iš",
+    "googlePlay": "Gaukite iš",
+    "windows": "Programa, skirta",
+    "macos": "Programa, skirta"
+  },
+  "who": {
+    "title": "Kam skirta",
+    "sub": "Sukurta krovinių pervežimui keliais — bet kokio dydžio autoparkui, vietiniams ir tarptautiniams reisams.",
+    "items": {
+      "size": {
+        "title": "Bet kokio dydžio autoparkai",
+        "text": "Nuo kelių vilkikų iki šimtų — susitvarkykite be sunkiasvorės TMS. Pradėsite dirbti per kelias dienas."
+      },
+      "intl": {
+        "title": "Tarptautiniai vežėjai",
+        "text": "Kiekvienas reisas, CMR ir dokumentas vienoje vietoje, nepaisant sienų. Niekas nepasimeta tarp šalių."
+      },
+      "mixed": {
+        "title": "Subrangovai ir mišrūs autoparkai",
+        "text": "Nuosavi vilkikai ir samdyti vairuotojai vienoje lentoje. Visi mato tuos pačius reisus."
+      },
+      "lang": {
+        "title": "Įvairiakalbės komandos",
+        "text": "Autoparkams, kuriuose vadybininkai ir vairuotojai kalba skirtingomis kalbomis: adresai, laiko langai ir dokumentai visada po ranka prie reiso — mažiau aiškinimosi žodžiu."
+      }
+    }
+  },
+  "demo": {
+    "eyebrow": "Susisiekite",
+    "integrations": "Atviri integracijoms — papasakokite, kokias sistemas naudojate",
+    "title": "Būkite vienas pirmųjų autoparkų <accent>IS Fleet.</accent>",
+    "text": "Papasakokite apie savo autoparką. Ankstyvosios prieigos komandos gauna diegimą su mūsų pagalba, demonstraciją savo tikruose maršrutuose ir tiesioginį ryšį su tais, kurie kuria produktą."
+  },
+  "form": {
+    "tabsLabel": "Ką norėtumėte daryti?",
+    "tabTrial": "Išbandyti nemokamai",
+    "tabDemo": "Užsakyti demonstraciją",
+    "soon": "Netrukus",
+    "name": "Jūsų vardas",
+    "namePlaceholder": "Jonas Jonaitis",
+    "company": "Įmonė",
+    "companyPlaceholder": "Jūsų įmonės pavadinimas",
+    "email": "Darbo el. paštas",
+    "emailPlaceholder": "jus@imone.lt",
+    "trucks": "Vilkikų skaičius",
+    "message": "Ką mums reikėtų žinoti?",
+    "messagePlaceholder": "Papasakokite apie savo autoparką, maršrutus ar ypatingus poreikius…",
+    "sending": "Siunčiama…",
+    "submitTrial": "Išbandyti nemokamai",
+    "submitDemo": "Užsakyti demonstraciją",
+    "trialHint": "Atsiųsime el. laiške nuorodą slaptažodžiui nustatyti. Kortelės nereikia.",
+    "done": {
+      "trialTitle": "Patikrinkite el. paštą",
+      "trialText": "Išsiuntėme nuorodą adresu <b>{{email}}</b>. Atverkite ją, nustatykite slaptažodį ir prisijunkite prie naujos darbo erdvės, — tada pridėkite vilkikus, vadybininkus ir vairuotojus.",
+      "spam": "Laiško nėra po kelių minučių? Patikrinkite šlamšto aplanką.",
+      "demoTitle": "Ačiū — gavome jūsų užklausą",
+      "demoText": "Netrukus parašysime jums adresu <b>{{email}}</b> ir susitarsime dėl demonstracijos jūsų maršrutuose."
+    },
+    "errors": {
+      "exists": "„{{company}}“ jau naudoja IS Fleet. Paprašykite kvietimo savo komandos vadovo arba parašykite adresu {{email}}.",
+      "tooMany": "Per daug bandymų. Bandykite dar kartą po valandos.",
+      "invalid": "Patikrinkite laukus ir bandykite dar kartą.",
+      "generic": "Kažkas nepavyko. Bandykite dar kartą arba parašykite mums adresu {{email}}."
+    }
+  },
+  "footer": {
+    "backToTop": "IS Fleet — į viršų",
+    "label": "Poraštė",
+    "privacy": "Privatumo politika",
+    "terms": "Naudojimo sąlygos"
+  },
+  "mock": {
+    "online": "prisijungęs",
+    "onlineCap": "Prisijungusi",
+    "status": {
+      "ON_WAY": "Kelyje",
+      "ON_SITE": "Vietoje",
+      "LOADED": "Pakrautas"
+    },
+    "myTrucks": "Mano vilkikai",
+    "chat": "Pokalbiai",
+    "trips": "Reisai",
+    "trucks": "Vilkikai",
+    "drivers": "Vairuotojai",
+    "documents": "Dokumentai",
+    "alarm": "Žadintuvas",
+    "info": "Info",
+    "msg": {
+      "loading": "Pakrovimas Poznanėje šiandien 08:00–10:00, 4 rampa.",
+      "onSite": "Vietoje, laukiu rampos.",
+      "loaded": "Pakrauta, 33 paletės. Išvažiuoju iš Poznanės.",
+      "slot": "Iškrovimas perkeltas į tr 06:00 — anksčiau, nei planuota.",
+      "slotShort": "Iškrovimas perkeltas į tr 06:00."
+    },
+    "desk": {
+      "aria": "IS Fleet žiniatinklio programa: vadybininko vilkikai su reisų būsena ir pasirinkto vilkiko dabartinis reisas — maršrutas, dokumentai ir reiso pokalbis su vairuotoju",
+      "driver": "Vairuotojas: {{name}} · prisijungęs",
+      "newTrip": "Naujas reisas",
+      "typeMessage": "Rašykite žinutę…"
+    },
+    "manager": {
+      "aria": "IS Manager iPhone ir Android telefone: pradžios ekranas su skiltimis „Mano vilkikai“, pokalbiai, reisai, vilkikai ir vairuotojai",
+      "fleetTrips": "Jūsų autoparkas ir reisai",
+      "role": "Vadovė · prisijungusi"
+    },
+    "driver": {
+      "aria": "IS Driver: šoninis meniu atvertas virš dabartinio reiso — reisas, mano reisai, mano vilkikas, dokumentai, pokalbiai, žadintuvas ir priskirtas vadovas",
+      "brand": "Driver",
+      "trip": "Reisas",
+      "myTrips": "Mano reisai",
+      "myTruck": "Mano vilkikas",
+      "noUnread": "Nėra neperskaitytų",
+      "manager": "Vadovas",
+      "loadingStop": "1. Pakrovimas · pr 08:00–10:00",
+      "unloadingStop": "2. Iškrovimas · tr 06:00–09:00",
+      "tripChat": "Reiso pokalbis",
+      "message": "Žinutė…"
+    }
+  }
+}

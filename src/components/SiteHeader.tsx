@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { cx } from "@/lib/cx";
 import { PRIMARY_CTA, navLinks, site } from "@/lib/site";
 import ui from "@/styles/ui.module.css";
 import { CloseIcon, MenuIcon } from "./icons";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 import styles from "./SiteHeader.module.css";
 
@@ -12,6 +14,7 @@ import styles from "./SiteHeader.module.css";
 const SHRINK_DELAY = 200;
 
 export function SiteHeader() {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -32,19 +35,22 @@ export function SiteHeader() {
   return (
     <header className={cx(styles.header, scrolled && styles.scrolled)}>
       <div className={cx(ui.wrap, styles.nav)}>
-        <Logo href="#top" label="IS Fleet home" />
-        <nav className={styles.links} aria-label="Main">
+        <Logo href="#top" label={t("nav.home")} />
+        <nav className={styles.links} aria-label={t("nav.main")}>
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href}>{l.label}</a>
+            <a key={l.href} href={l.href}>{t(l.key)}</a>
           ))}
         </nav>
         <span className={styles.spacer} />
-        <a className={styles.login} href={site.loginUrl}>Log in</a>
-        <a className={cx(ui.btn, ui.primary, styles.cta)} href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</a>
+        <div className={styles.lang}>
+          <LanguageSwitcher variant="dropdown" />
+        </div>
+        <a className={styles.login} href={site.loginUrl}>{t("nav.login")}</a>
+        <a className={cx(ui.btn, ui.primary, styles.cta)} href={PRIMARY_CTA.href}>{t(PRIMARY_CTA.labelKey)}</a>
         <button
           className={styles.menuBtn}
           type="button"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-label={menuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           onClick={() => setMenuOpen((o) => !o)}
@@ -53,11 +59,12 @@ export function SiteHeader() {
         </button>
       </div>
       <div className={cx(styles.mobileMenu, menuOpen && styles.open)} id="mobile-menu">
-        <nav aria-label="Mobile">
+        <nav aria-label={t("nav.mobile")}>
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} onClick={closeMenu}>{l.label}</a>
+            <a key={l.href} href={l.href} onClick={closeMenu}>{t(l.key)}</a>
           ))}
-          <a className={cx(ui.btn, ui.primary, styles.mobileCta)} href={PRIMARY_CTA.href} onClick={closeMenu}>{PRIMARY_CTA.label}</a>
+          <LanguageSwitcher variant="list" />
+          <a className={cx(ui.btn, ui.primary, styles.mobileCta)} href={PRIMARY_CTA.href} onClick={closeMenu}>{t(PRIMARY_CTA.labelKey)}</a>
         </nav>
       </div>
     </header>
