@@ -13,10 +13,11 @@ export function SiteFooter({ lng }: { lng: Locale }) {
       <div className={cx(ui.wrap, styles.inner)}>
         <Logo href="#top" label={t("footer.backToTop")} small />
         <span className={styles.copy}>© {new Date().getFullYear()} IS Fleet</span>
+        {/* The app lives on its own site: open it in a new tab and keep the landing */}
         <nav className={styles.links} aria-label={t("footer.label")}>
-          <a href={site.privacyUrl}>{t("footer.privacy")}</a>
-          <a href={site.termsUrl}>{t("footer.terms")}</a>
-          <a href={site.loginUrl}>{t("nav.login")}</a>
+          <a href={site.privacyUrl} target="_blank" rel="noopener noreferrer">{t("footer.privacy")}</a>
+          <a href={site.termsUrl} target="_blank" rel="noopener noreferrer">{t("footer.terms")}</a>
+          <a href={site.loginUrl} target="_blank" rel="noopener noreferrer">{t("nav.login")}</a>
         </nav>
       </div>
     </footer>

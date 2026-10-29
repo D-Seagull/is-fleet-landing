@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, IBM_Plex_Sans, Manrope } from "next/font/google";
-import Script from "next/script";
 import { defaultLocale, localePath, locales, ogLocales } from "@/i18n/config";
 import { I18nProvider } from "@/i18n/I18nProvider";
 import { resolveLocale, type LocaleParams } from "@/i18n/params";
@@ -70,17 +69,22 @@ export const viewport: Viewport = {
   themeColor: "#0b1f33",
 };
 
+const MOTION_FLAG =
+  "(function(d){if(!window.matchMedia('(prefers-reduced-motion: no-preference)').matches)return;d.classList.add('motion');setTimeout(function(){if(!('motionReady' in d.dataset))d.classList.remove('motion')},3000)})(document.documentElement)";
+
 export default async function RootLayout({ children, params }: Readonly<{ children: React.ReactNode; params: Params }>) {
   const lng = await resolveLocale(params);
   return (
     // suppressHydrationWarning: the inline script below adds `motion` to <html> before React hydrates.
     <html lang={lng} className={`${manrope.variable} ${plex.variable} ${geist.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Hide the animated pieces before the first paint so GSAP can fade them in without a flash
+            (see globals.css). A plain inline script on purpose: next/script's beforeInteractive is only
+            queued in the HTML and runs once Next's runtime loads — after the page has already been
+            painted, which was the flash. If Motion.tsx hasn't started after 3s, show everything. */}
+        <script dangerouslySetInnerHTML={{ __html: MOTION_FLAG }} />
+      </head>
       <body>
-        {/* Hide the animated pieces before first paint so GSAP can fade them in without a flash (see
-            globals.css). If Motion.tsx hasn't started after 3s (slow or blocked bundle), show everything. */}
-        <Script id="motion-flag" strategy="beforeInteractive">
-          {"(function(d){if(!window.matchMedia('(prefers-reduced-motion: no-preference)').matches)return;d.classList.add('motion');setTimeout(function(){if(!('motionReady' in d.dataset))d.classList.remove('motion')},3000)})(document.documentElement)"}
-        </Script>
         <I18nProvider lng={lng} landing={resources[lng]}>
           {children}
         </I18nProvider>
