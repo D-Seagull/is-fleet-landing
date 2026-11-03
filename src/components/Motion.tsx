@@ -34,8 +34,10 @@ export function Motion() {
       root.dataset.motionReady = "";
       root.classList.add("motion");
 
+      // Once the intro is over its pieces stay visible even if React redraws them (dev hot reload
+      // drops GSAP's inline styles): globals.css only pre-hides them until data-intro-done.
       const intro = gsap
-        .timeline({ defaults: { ease: "power3.out" } })
+        .timeline({ defaults: { ease: "power3.out" }, onComplete: () => void (root.dataset.introDone = "") })
         .fromTo("[data-hero-item]", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08 });
       if (window.matchMedia(DESKTOP_MOTION).matches) {
         intro

@@ -1,17 +1,31 @@
-/* Mirrors is-fleet-frontend's light theme tokens (src/app/globals.css) and Geist font,
-   so the mockup reads as the real "My Trucks" screen rather than a marketing drawing. */
+/* The web app's My Trucks screen as a static picture. Colours are the app's light theme
+   (is-fleet-frontend/src/app/globals.css); sizes are the app's, scaled down a little so the whole
+   screen fits a 1000px-wide window (MockupFit zooms it to the room it gets). */
 .frame {
-  --app-bg: oklch(0.98 0.005 240);
-  --app-fg: oklch(0.15 0.02 240);
-  --app-card: oklch(1 0 0);
-  --app-muted: oklch(0.95 0.01 240);
-  --app-muted-fg: oklch(0.5 0.02 240);
-  --app-border: oklch(0.9 0.01 240);
-  --app-primary: oklch(0.55 0.2 255);
-  --app-accent: oklch(0.92 0.01 240);
-  --app-destructive: oklch(0.58 0.22 27); /* trash icon */
-  container-type: inline-size;
-  background: var(--app-card);
+  --app-bg: #ffffff;
+  --app-fg: #101828;
+  --app-text-2: #344054;
+  --app-muted: #f6f7f9;
+  --app-muted-fg: #5d6679;
+  --app-subtle: #98a2b3;
+  --app-secondary: #f2f4f7;
+  --app-border: #e4e7ec;
+  --app-primary: #1d4ed8;
+  --app-accent: #eef2ff;
+  --app-chat: oklch(0.95 0.022 255);
+  --app-ink: #0b1f33;
+  --app-rail-fg: #a9b4cc;
+  --app-online: #17b26a;
+  --app-danger: #d92d20;
+  --tone-go-bg: #ecfdf3;
+  --tone-go: #067647;
+  --tone-load-bg: #eff8ff;
+  --tone-load: #175cd3;
+  --tone-warn-bg: #fffaeb;
+  --tone-warn: #b54708;
+  --plate-eu: #003399;
+
+  background: var(--app-bg);
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow:
@@ -20,262 +34,425 @@
   overflow: hidden;
   font-family: var(--font-geist), var(--font-body);
   color: var(--app-fg);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.35;
 }
 .app {
   display: flex;
-  flex-direction: column;
+  height: 560px;
 }
 .grow {
   flex-grow: 1;
 }
 
-/* Top bar */
-.topbar {
-  height: 36px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 12px;
-  border-bottom: 1px solid var(--app-border);
-  color: var(--app-muted-fg);
-  background: var(--app-bg);
-}
-.logo {
-  height: 15px;
-  width: auto;
-}
-
-.body {
-  display: flex;
-  height: 400px;
-}
-
-/* Icon rail */
+/* Dark rail with the wordmark (app-sidebar.tsx) */
 .rail {
-  width: 36px;
+  width: 168px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  padding: 8px 0;
-  border-right: 1px solid var(--app-border);
-  background: var(--app-bg);
-  color: var(--app-muted-fg);
+  background: var(--app-ink);
+  color: var(--app-rail-fg);
 }
-.railItem {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
+.brand {
+  height: 46px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.railActive {
-  color: var(--app-fg);
-  background: var(--app-accent);
-  box-shadow: inset 0 0 0 1.5px var(--app-primary);
+.brand img {
+  height: 16px;
+  width: auto;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 6px;
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.navActive {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 600;
+}
+.navIcon {
+  position: relative;
+  display: flex;
+}
+.navDot {
+  position: absolute;
+  top: -2px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--app-danger);
+  box-shadow: 0 0 0 2px var(--app-ink);
 }
 .me {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.meAvatar {
   position: relative;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
   border-radius: 50%;
-  background: #dbe4f0;
-  color: #3d5266;
-  font-size: 8px;
+  background: #33475e;
+  color: #fff;
+  font-size: 9.5px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.me i {
+.meAvatar i {
   position: absolute;
   right: -1px;
   bottom: -1px;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #10b981;
-  border: 1.5px solid var(--app-bg);
+  background: var(--app-online);
+  border: 1.5px solid var(--app-ink);
+}
+.meText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 10.5px;
+  line-height: 1.25;
+}
+.meText b {
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meChevron {
+  margin-left: auto;
+  flex-shrink: 0;
+  transform: rotate(180deg);
 }
 
-/* My Trucks list */
-.list {
-  display: none;
-  width: 34%;
-  max-width: 210px;
+/* Everything right of the rail */
+.inset {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header: sidebar toggle, the search pill in the middle, icons on the right (app-layout.tsx) */
+.topbar {
+  height: 46px;
   flex-shrink: 0;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 330px) 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--app-border);
+  color: var(--app-muted-fg);
+}
+.search {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid var(--app-border);
+  border-radius: 999px;
+  background: var(--app-muted);
+  font-size: 11.5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.search svg {
+  flex-shrink: 0;
+}
+.topIcons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+.bell {
+  position: relative;
+  display: flex;
+}
+.bell i {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+  min-width: 13px;
+  height: 13px;
+  padding: 0 3px;
+  border-radius: 999px;
+  background: var(--app-danger);
+  color: #fff;
+  font-size: 8.5px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 13px;
+  text-align: center;
+}
+
+.body {
+  flex-grow: 1;
+  min-height: 0;
+  display: flex;
+}
+
+/* My Trucks list (my-trucks/page.tsx) */
+.list {
+  width: 236px;
+  flex-shrink: 0;
+  display: flex;
   flex-direction: column;
   border-right: 1px solid var(--app-border);
-  background: var(--app-card);
 }
 .listHead {
-  height: 36px;
+  height: 50px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 0 10px;
+  gap: 7px;
+  padding: 0 14px;
   border-bottom: 1px solid var(--app-border);
-  font-size: 12px;
+  font-size: 12.5px;
 }
-.truck {
+.listHead b {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cards {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--app-border);
+  gap: 7px;
+  padding: 8px;
 }
-.truckActive {
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 9px 11px;
+  border: 1px solid var(--app-border);
+  border-radius: 14px;
   background: var(--app-muted);
 }
-.truckTop {
+.cardActive {
+  background: var(--app-accent);
+  border-color: color-mix(in srgb, var(--app-primary) 50%, transparent);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+}
+.cardTop {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 6px;
+  margin-bottom: 2px;
 }
 .driver {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  font-size: 11.5px;
+  color: var(--app-text-2);
+}
+.seen {
+  font-size: 10.5px;
   color: var(--app-muted-fg);
-  white-space: nowrap;
-  overflow: hidden;
 }
-.dotAway {
+.online {
+  display: inline-block;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
-  background: #f59e0b;
   flex-shrink: 0;
-  display: inline-block;
-}
-.dotOnline {
-  width: 6px;
-  height: 6px;
   border-radius: 50%;
-  background: #10b981;
-  flex-shrink: 0;
-  display: inline-block;
+  background: var(--app-online);
 }
-
-.unit {
-  font-weight: 600;
-  font-size: 12px;
-  white-space: nowrap;
+.unread {
+  min-width: 17px;
+  height: 17px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--app-primary);
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: center;
 }
-
-/* Trip status badge (TRIP_STATUS_COLORS) */
-.pill {
+/* Amber note chip with a wrench (issue-chip.tsx) */
+.note {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  height: 17px;
-  padding: 0 6px;
+  gap: 5px;
+  height: 20px;
+  margin-top: 2px;
+  padding: 0 9px;
   border-radius: 999px;
-  border: 1px solid;
-  font-size: 9.5px;
-  font-weight: 500;
+  background: var(--tone-warn-bg);
+  color: var(--tone-warn);
+  font-size: 10.5px;
+  font-weight: 600;
   white-space: nowrap;
-  flex-shrink: 0;
-}
-.ON_WAY {
-  background: rgb(234 179 8 / 0.1);
-  color: #ca8a04;
-  border-color: rgb(234 179 8 / 0.25);
-}
-.ON_SITE {
-  background: rgb(249 115 22 / 0.1);
-  color: #ea580c;
-  border-color: rgb(249 115 22 / 0.25);
-}
-.LOADED {
-  background: rgb(168 85 247 / 0.1);
-  color: #9333ea;
-  border-color: rgb(168 85 247 / 0.25);
 }
 
-/* Selected truck */
+/* EU number plate (license-plate.tsx) */
+.plate {
+  display: inline-flex;
+  align-items: center;
+  height: 21px;
+  overflow: hidden;
+  border: 1.5px solid var(--app-fg);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--app-fg);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding-right: 6px;
+  white-space: nowrap;
+}
+.plate i {
+  align-self: stretch;
+  width: 6px;
+  margin-right: 5px;
+  background: var(--plate-eu);
+}
+
+/* Status pill, coloured by tone (status-badge.tsx, lib/status-tone.ts) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 20px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.go {
+  background: var(--tone-go-bg);
+  color: var(--tone-go);
+}
+.load {
+  background: var(--tone-load-bg);
+  color: var(--tone-load);
+}
+
+/* Selected truck (truck-detail-panel) */
 .main {
   flex-grow: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: 10px 10px 8px;
-  gap: 8px;
-  background: var(--app-bg);
+  gap: 11px;
+  padding: 12px 14px 12px;
 }
 .mainHead {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 12px;
   min-width: 0;
 }
-.truckTitle {
-  font-size: 17px;
-  font-weight: 800;
+.title {
+  font-size: 21px;
+  font-weight: 700;
   letter-spacing: -0.01em;
-  flex-shrink: 0;
+  line-height: 1.15;
 }
-.lastSeen {
-  display: flex;
+.headDriver {
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   color: var(--app-muted-fg);
+  font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
 }
+
+/* Pill tabs (ui/tabs.tsx) + New Trip */
 .tabsRow {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 .tabs {
   display: inline-flex;
-  gap: 2px;
-  padding: 2px;
-  border-radius: 7px;
-  background: var(--app-muted);
+  align-items: center;
+  height: 33px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--app-secondary);
+  color: var(--app-muted-fg);
+  font-size: 12px;
   font-weight: 500;
+  white-space: nowrap;
 }
 .tabs > span {
-  padding: 3px 7px;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 11px;
+  border-radius: 999px;
 }
-.tabActive {
-  background: var(--app-card);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-}
-.tabExtra {
-  display: none;
+.tabs > .tabActive {
+  background: var(--app-bg);
+  color: var(--app-fg);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.1);
 }
 .newTrip {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 5px 9px;
-  border-radius: 6px;
+  gap: 5px;
+  height: 33px;
+  padding: 0 14px;
+  border-radius: 999px;
   background: var(--app-primary);
   color: #fff;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
 }
 
-.tripBar {
+/* Current trip row (trip-info-card.tsx) */
+.trip {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 7px 9px;
-  border: 1px solid var(--app-border);
-  border-radius: 8px;
-  background: var(--app-card);
+  gap: 7px;
   min-width: 0;
+  padding: 9px 12px;
+  border: 1px solid var(--app-border);
+  border-radius: 14px;
+  background: var(--app-bg);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+  font-size: 11.5px;
 }
 .tripRoute {
   font-weight: 600;
@@ -285,7 +462,6 @@
   min-width: 0;
 }
 .tripMeta {
-  display: none;
   color: var(--app-muted-fg);
   white-space: nowrap;
 }
@@ -293,20 +469,19 @@
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  color: var(--app-muted-fg);
   flex-shrink: 0;
+  color: var(--app-muted-fg);
+  font-size: 10.5px;
 }
 .tripActions {
-  display: none;
-  gap: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-left: 4px;
   color: var(--app-muted-fg);
 }
-.danger {
-  color: var(--app-destructive);
-}
 
-/* Trip chat */
-/* Trip-chat wallpaper: the web app's chat2 art (.chat2-bg-image) on --chat-bg */
+/* Trip chat: a recessed blue-tinted panel over the map wallpaper (trip-chat.tsx, chat-timeline-item.tsx) */
 .chat {
   position: relative;
   isolation: isolate;
@@ -316,10 +491,10 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 8px;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px 14px;
   overflow: hidden;
-  background: oklch(0.95 0.022 255);
+  border-radius: 12px;
+  background: var(--app-chat);
 }
 .chat::before {
   content: "";
@@ -330,151 +505,123 @@
   opacity: 0.32;
   filter: saturate(0.5);
 }
-.inRow {
-  display: flex;
-  gap: 6px;
-  align-items: flex-start;
-  max-width: 88%;
-}
-.inCol {
+.inRow,
+.outRow {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  max-width: 82%;
+}
+.inRow {
+  align-self: flex-start;
+}
+.outRow {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+.line {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   min-width: 0;
 }
+.author,
+.timeIn {
+  padding-left: 33px;
+}
+.author {
+  font-size: 10.5px;
+  color: var(--app-muted-fg);
+}
 .avatar {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #dbe7fb;
-  color: var(--app-primary);
-  font-size: 8.5px;
+  background: var(--app-secondary);
+  color: var(--app-text-2);
+  font-size: 9.5px;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.author {
-  font-size: 9.5px;
-  color: var(--app-muted-fg);
+.bubbleIn,
+.bubbleOut {
+  padding: 6px 11px;
+  border-radius: 16px;
+  font-size: 12px;
+  line-height: 1.35;
 }
 .bubbleIn {
-  align-self: flex-start;
-  padding: 6px 9px;
-  border-radius: 10px;
-  background: var(--app-card);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--app-border);
+  border-bottom-left-radius: 5px;
+  background: var(--app-bg);
+}
+.bubbleOut {
+  border-bottom-right-radius: 5px;
+  background: var(--app-primary);
+  color: #fff;
 }
 .file {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   color: var(--app-primary);
   font-weight: 500;
-}
-.line {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  min-width: 0;
-}
-.reaction {
-  font-size: 12px;
-  line-height: 1;
-  flex-shrink: 0;
-}
-.reactionIdle {
-  font-size: 11px;
-  line-height: 1;
-  flex-shrink: 0;
-  filter: grayscale(1);
-  opacity: 0.35;
-}
-.outRow {
-  align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-  max-width: 80%;
-}
-.bubbleOut {
-  padding: 6px 9px;
-  border-radius: 10px;
-  background: var(--app-primary);
-  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .time {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  font-size: 9px;
-  color: var(--app-muted-fg);
+  font-size: 9.5px;
+  color: color-mix(in srgb, var(--app-muted-fg) 70%, transparent);
 }
 .read {
   color: var(--app-primary);
 }
+.reaction {
+  font-size: 13px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.reactionIdle {
+  font-size: 12px;
+  line-height: 1;
+  flex-shrink: 0;
+  filter: grayscale(1);
+  opacity: 0.35;
+}
 
+/* Composer (chat-composer.tsx): round icon buttons, a pill input, the send button */
 .composer {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  padding: 0 2px 0 8px;
   color: var(--app-muted-fg);
 }
 .input {
   flex-grow: 1;
-  height: 26px;
+  height: 34px;
   display: flex;
   align-items: center;
-  padding: 0 9px;
+  padding: 0 14px;
   border: 1px solid var(--app-border);
-  border-radius: 7px;
-  background: var(--app-card);
+  border-radius: 999px;
+  background: var(--app-bg);
+  font-size: 12px;
 }
 .send {
-  width: 26px;
-  height: 26px;
-  border-radius: 7px;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: color-mix(in oklch, var(--app-primary) 55%, white);
   color: #fff;
-}
-
-/* Wider mockup → more of the real screen */
-@container (min-width: 520px) {
-  .list {
-    display: flex;
-  }
-}
-@container (min-width: 600px) {
-  .frame {
-    font-size: 11.5px;
-  }
-  .rail {
-    width: 42px;
-  }
-  .main {
-    padding: 12px 12px 10px;
-    gap: 10px;
-  }
-  .truckTitle {
-    font-size: 19px;
-  }
-  .tabExtra {
-    display: inline;
-  }
-  .tripActions {
-    display: inline-flex;
-  }
-}
-@container (min-width: 760px) {
-  .tripMeta {
-    display: inline;
-  }
-  .body {
-    height: 440px;
-  }
 }

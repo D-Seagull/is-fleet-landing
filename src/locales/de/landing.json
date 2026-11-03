@@ -206,6 +206,8 @@
     "documents": "Dokumente",
     "alarm": "Wecker",
     "info": "Info",
+    "managers": "Manager",
+    "settings": "Einstellungen",
     "msg": {
       "loading": "Beladung in Poznań heute 08:00–10:00, Rampe 4.",
       "onSite": "Vor Ort, warte auf die Rampe.",
@@ -217,7 +219,12 @@
       "aria": "Die IS Fleet Web-App: die Lkw eines Managers mit Tourstatus und die aktuelle Tour des gewählten Lkw — Route, Dokumente und der Tour-Chat mit dem Fahrer",
       "driver": "Fahrer: {{name}} · online",
       "newTrip": "Neue Tour",
-      "typeMessage": "Nachricht schreiben…"
+      "typeMessage": "Nachricht schreiben…",
+      "search": "LKW, Fahrer oder Fahrt suchen",
+      "driverLabel": "Fahrer: {{name}}",
+      "lastSeen": "zuletzt in der App {{when}}",
+      "note": "Batterien wechseln",
+      "role": "Manager"
     },
     "manager": {
       "aria": "IS Manager auf iPhone und Android: der Startbildschirm mit Meine Lkw, Chat, Touren, Lkw und Fahrern",

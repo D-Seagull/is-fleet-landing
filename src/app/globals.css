@@ -50,7 +50,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
    the visitor allows motion. Everything GSAP fades in starts at opacity 0 here, before the first paint,
    and GSAP takes it from 0 to 1 — no flash of the finished page first. If the script bundle doesn't
    start within 3s, the <head> script drops `motion` and it all simply shows (layout.tsx). */
-.motion [data-hero-item],
+.motion:not([data-intro-done]) [data-hero-item],
 .motion [data-reveal],
 .motion [data-stagger] > * {
   opacity: 0;
@@ -58,7 +58,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* Desktop only (DESKTOP_MOTION in Motion.tsx): the app window fades in, the phones wait for the
    scroll story, and the story's later steps start dimmed */
 @media (min-width: 900px) and (pointer: fine), (min-width: 900px) and (orientation: landscape) {
-  .motion [data-hero-dash],
+  .motion:not([data-intro-done]) [data-hero-dash],
   .motion [data-story-phone] {
     opacity: 0;
   }

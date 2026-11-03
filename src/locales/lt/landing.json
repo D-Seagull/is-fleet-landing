@@ -206,6 +206,8 @@
     "documents": "Dokumentai",
     "alarm": "Žadintuvas",
     "info": "Info",
+    "managers": "Vadybininkai",
+    "settings": "Nustatymai",
     "msg": {
       "loading": "Pakrovimas Poznanėje šiandien 08:00–10:00, 4 rampa.",
       "onSite": "Vietoje, laukiu rampos.",
@@ -217,7 +219,12 @@
       "aria": "IS Fleet žiniatinklio programa: vadybininko vilkikai su reisų būsena ir pasirinkto vilkiko dabartinis reisas — maršrutas, dokumentai ir reiso pokalbis su vairuotoju",
       "driver": "Vairuotojas: {{name}} · prisijungęs",
       "newTrip": "Naujas reisas",
-      "typeMessage": "Rašykite žinutę…"
+      "typeMessage": "Rašykite žinutę…",
+      "search": "Ieškoti vilkiko, vairuotojo ar reiso",
+      "driverLabel": "Vairuotojas: {{name}}",
+      "lastSeen": "paskutinį kartą programėlėje {{when}}",
+      "note": "Pakeisti akumuliatorius",
+      "role": "Vadybininkas"
     },
     "manager": {
       "aria": "IS Manager iPhone ir Android telefone: pradžios ekranas su skiltimis „Mano vilkikai“, pokalbiai, reisai, vilkikai ir vairuotojai",

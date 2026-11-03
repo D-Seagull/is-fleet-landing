@@ -4,8 +4,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /** Width the app window is laid out at — wide enough for every part of the real screen
- *  (truck list, all tabs, trip actions; see the @container rules in DashboardMockup.module.css). */
-const DESIGN_WIDTH = 760;
+ *  (rail, truck list, every tab and trip action, as in DashboardMockup.module.css). */
+const DESIGN_WIDTH = 1000;
 
 /**
  * Shows the app window as one picture: always laid out at full size, then zoomed to the width it

@@ -206,6 +206,8 @@
     "documents": "Dokumenty",
     "alarm": "Budzik",
     "info": "Info",
+    "managers": "Menedżerowie",
+    "settings": "Ustawienia",
     "msg": {
       "loading": "Załadunek w Poznaniu dziś 08:00–10:00, rampa 4.",
       "onSite": "Na miejscu, czekam na rampę.",
@@ -217,7 +219,12 @@
       "aria": "Aplikacja webowa IS Fleet: ciężarówki menedżera ze statusem tras oraz bieżąca trasa wybranej ciężarówki — przebieg, dokumenty i rozmowa z kierowcą w trasie",
       "driver": "Kierowca: {{name}} · online",
       "newTrip": "Nowa trasa",
-      "typeMessage": "Napisz wiadomość…"
+      "typeMessage": "Napisz wiadomość…",
+      "search": "Szukaj pojazdu, kierowcy lub kursu",
+      "driverLabel": "Kierowca: {{name}}",
+      "lastSeen": "ostatnio w aplikacji {{when}}",
+      "note": "Wymienić akumulatory",
+      "role": "Menedżer"
     },
     "manager": {
       "aria": "IS Manager na iPhone i Androida: ekran główny z sekcjami Moje ciężarówki, czat, trasy, ciężarówki i kierowcy",

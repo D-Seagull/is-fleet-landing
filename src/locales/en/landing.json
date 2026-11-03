@@ -206,6 +206,8 @@
     "documents": "Documents",
     "alarm": "Alarm",
     "info": "Info",
+    "managers": "Managers",
+    "settings": "Settings",
     "msg": {
       "loading": "Loading in Poznań today 08:00–10:00, dock 4.",
       "onSite": "On site, waiting for the dock.",
@@ -217,7 +219,12 @@
       "aria": "The IS Fleet web app: a manager's trucks with their trip status, and the selected truck's current trip — route, documents and the trip conversation with the driver",
       "driver": "Driver: {{name}} · online",
       "newTrip": "New Trip",
-      "typeMessage": "Type a message…"
+      "typeMessage": "Type a message…",
+      "search": "Search trucks, drivers or trips",
+      "driverLabel": "Driver: {{name}}",
+      "lastSeen": "last in the app {{when}}",
+      "note": "Change the batteries",
+      "role": "Manager"
     },
     "manager": {
       "aria": "IS Manager on iPhone and Android: the home screen with My Trucks, chat, trips, trucks and drivers",
