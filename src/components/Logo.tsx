@@ -5,7 +5,7 @@ import styles from "./Logo.module.css";
 export function Logo({ href, label, small }: { href: string; label: string; small?: boolean }) {
   return (
     <a href={href} className={cx(styles.logo, small && styles.small)} aria-label={label}>
-      <img src="/logo.svg" alt="" width={1458} height={324} />
+      <img src="/logo.svg" alt="" width={1994} height={324} />
     </a>
   );
 }

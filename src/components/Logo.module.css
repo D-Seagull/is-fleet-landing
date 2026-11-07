@@ -4,18 +4,18 @@
   flex-shrink: 0;
 }
 .logo img {
-  height: 26px;
+  height: 21px;
   width: auto;
 }
 .small img {
-  height: 22px;
+  height: 18px;
 }
 
 @media (min-width: 900px) {
   .logo img {
-    height: 32px;
+    height: 26px;
   }
   .small img {
-    height: 24px;
+    height: 20px;
   }
 }

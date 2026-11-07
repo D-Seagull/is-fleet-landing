@@ -32,7 +32,7 @@
   height: 56px;
 }
 .scrolled .nav img {
-  height: 22px;
+  height: 18px;
 }
 .links {
   display: none;
@@ -117,9 +117,10 @@
   .nav {
     gap: 4px;
   }
+  /* The wordmark is ~6× as wide as it is tall: 17px keeps it at ~105px */
   .nav img,
   .scrolled .nav img {
-    height: 20px;
+    height: 17px;
   }
   .lang {
     margin-right: -4px;
@@ -156,7 +157,7 @@
     height: 60px;
   }
   .scrolled .nav img {
-    height: 26px;
+    height: 21px;
   }
   .scrolled .cta {
     min-height: 40px;
