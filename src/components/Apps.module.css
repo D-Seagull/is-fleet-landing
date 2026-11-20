@@ -59,11 +59,23 @@
   color: var(--on-dark);
   flex-grow: 1;
 }
+/* Every store button is the same size: equal columns, two side by side when they fit, else one
+   per row. The cards are equal width, so the buttons match across cards too. */
 .stores {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
   gap: 8px;
   padding-top: 8px;
+}
+.card p.hint {
+  flex-grow: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--on-dark-label);
+}
+/* Stacked cards (phones) don't need the empty note slot */
+.card p.hint:empty {
+  display: none;
 }
 /* #download target: out of the flex flow, so it adds no gap above the heading */
 .anchor {
@@ -81,13 +93,25 @@
     border-radius: 32px;
     gap: 44px;
   }
+  /* The three cards are one size, and their rows (icon, label, title, text, buttons, note) line
+     up across them: each card spans the six rows of the grid as a subgrid. */
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    grid-template-rows: repeat(6, auto);
+    column-gap: 20px;
+    row-gap: 0;
   }
   .card {
     padding: 36px;
     border-radius: 22px;
+    display: grid;
+    grid-row: span 6;
+    grid-template-rows: subgrid;
+    row-gap: 12px;
+    align-content: start;
+  }
+  .card p.hint:empty {
+    display: block;
   }
 }
 @media (min-width: 1360px) {

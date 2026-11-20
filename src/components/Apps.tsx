@@ -40,6 +40,13 @@ export function Apps({ lng }: { lng: Locale }) {
                 <StoreButton key={l.store} store={l.store} url={l.url} small={t(`store.${l.store}`)} />
               ))}
             </div>
+            {/* The installer isn't code-signed yet, so SmartScreen warns on first launch. The slot is
+                there on every card so the cards' rows line up (subgrid in Apps.module.css). */}
+            <p className={styles.hint}>
+              {id === "desktop" && downloads.desktop.some((l) => l.store === "windows" && l.url)
+                ? t("apps.windowsHint")
+                : null}
+            </p>
           </article>
         ))}
       </div>

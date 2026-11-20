@@ -43,21 +43,25 @@ export const navLinks = [
 
 export type Store = "appStore" | "googlePlay" | "windows" | "macos";
 
+/** An optional link from the environment: unset or empty → null ("Coming soon"). */
+const optionalUrl = (value: string | undefined) => value?.trim() || null;
+
 /**
- * Store / download links, shown on the app cards in the Apps section. `url: null` renders a
- * "Coming soon" placeholder instead of a link — fill the URL in once the listing is public.
+ * Store / download links, shown on the app cards in the Apps section. Each one comes from its own
+ * env var (see .env.example); a missing one renders a "Coming soon" placeholder instead of a link,
+ * so a listing goes live by setting the variable in Vercel — no code change.
  */
 export const downloads: Record<"desktop" | "manager" | "driver", Array<{ store: Store; url: string | null }>> = {
   desktop: [
-    { store: "windows", url: null },
-    { store: "macos", url: null },
+    { store: "windows", url: optionalUrl(process.env.NEXT_PUBLIC_DESKTOP_WINDOWS_URL) },
+    { store: "macos", url: optionalUrl(process.env.NEXT_PUBLIC_DESKTOP_MACOS_URL) },
   ],
   manager: [
-    { store: "appStore", url: null },
-    { store: "googlePlay", url: null },
+    { store: "appStore", url: optionalUrl(process.env.NEXT_PUBLIC_MANAGER_APPSTORE_URL) },
+    { store: "googlePlay", url: optionalUrl(process.env.NEXT_PUBLIC_MANAGER_PLAY_URL) },
   ],
   driver: [
-    { store: "appStore", url: null },
-    { store: "googlePlay", url: null },
+    { store: "appStore", url: optionalUrl(process.env.NEXT_PUBLIC_DRIVER_APPSTORE_URL) },
+    { store: "googlePlay", url: optionalUrl(process.env.NEXT_PUBLIC_DRIVER_PLAY_URL) },
   ],
 };

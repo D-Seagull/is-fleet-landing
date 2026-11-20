@@ -41,12 +41,13 @@ export function StoreButton({
       </span>
     );
   }
+  // An installer downloads right here; a store listing opens in a new tab.
+  const isFile = store === "windows" || store === "macos";
   return (
     <a
       className={styles.store}
       href={url}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(isFile ? { download: true } : { target: "_blank", rel: "noopener noreferrer" })}
     >
       {inner}
     </a>

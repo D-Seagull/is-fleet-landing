@@ -1,9 +1,11 @@
 .store {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
   min-height: 48px;
-  padding: 7px 14px 7px 11px;
+  padding: 7px 10px;
   border-radius: 12px;
   border: 1px solid var(--on-dark-border);
   background: rgb(255 255 255 / 0.06);
@@ -19,7 +21,14 @@ a.store:hover {
 .text {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   line-height: 1.15;
+}
+.small,
+.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .small {
   font-size: 10.5px;

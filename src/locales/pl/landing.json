@@ -100,6 +100,7 @@
     "eyebrow": "Trzy aplikacje, jedno konto",
     "title": "W biurze, w telefonie, za kierownicą",
     "soon": "Wkrótce",
+    "windowsHint": "Przy pierwszym uruchomieniu Windows może wyświetlić ostrzeżenie: kliknij „Więcej informacji” → „Uruchom mimo to”. Uprawnienia administratora nie są potrzebne, a aplikacja aktualizuje się sama.",
     "items": {
       "desktop": {
         "label": "Dla dyspozytorów",

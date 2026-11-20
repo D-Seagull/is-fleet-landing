@@ -100,6 +100,7 @@
     "eyebrow": "Drei Apps, ein Konto",
     "title": "Im Büro, auf dem Handy, am Steuer",
     "soon": "Bald verfügbar",
+    "windowsHint": "Beim ersten Start kann Windows warnen: auf „Weitere Informationen“ → „Trotzdem ausführen“ klicken. Keine Administratorrechte nötig, danach aktualisiert sich die App selbst.",
     "items": {
       "desktop": {
         "label": "Für Disponenten",
